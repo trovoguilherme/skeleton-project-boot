@@ -39,6 +39,14 @@ public class ServicoController {
         return "home/servico";
     }
 
+    @GetMapping("/detalhe/{id}")
+    public String findById(@PathVariable("id") long id, Model model) {
+
+        model.addAttribute("servico", servicoRepository.findById(id).get());
+
+        return "home/servico-detalhe";
+    }
+
     @PostMapping("/procurar")
     public String procurar(@Valid ProcurarModel procurarModel, BindingResult bindingResult, Model model) {
 
