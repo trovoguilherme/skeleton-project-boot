@@ -1,11 +1,11 @@
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO,CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Back-end', 'Aqui vem a descrição', 'java');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Front-end', 'Aqui vem a descrição', 'html');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-1', 'Aqui vem a descrição', 'videos');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-2', 'Aqui vem a descrição', 'videos');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-3', 'Aqui vem a descrição', 'html');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-4', 'Aqui vem a descrição', 'java');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-5', 'Aqui vem a descrição', 'videos');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-6', 'Aqui vem a descrição', 'html');
-INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Titulo-8', 'Aqui vem a descrição', 'videos');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO,CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Back-end', 'Nullam placerat tempor dui. Curabitur ut nulla mollis, luctus orci a, maximus sapien. Fusce blandit.', 'java');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Front-end', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent condimentum odio vitae magna fermentum.', 'html');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Youtube', 'Donec venenatis elementum enim. Vestibulum sit amet facilisis nunc. Pellentesque pulvinar, nisi sit.', 'videos');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Twitch', 'Morbi feugiat lectus sed enim tempor, sit amet venenatis sapien euismod. Vivamus turpis sapien duis. ', 'videos');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Web', 'Aliquam eget tortor fermentum, consectetur libero ut, auctor elit. Vestibulum sollicitudin, est leo.', 'html');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Back-end Java', 'Etiam dignissim tristique urna a consequat. Nam neque leo, tristique ut cursus a, semper eget proin.', 'java');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Tik Tok', 'Maecenas fringilla scelerisque metus, et varius lectus egestas eget. Curabitur tristique magna quis.', 'videos');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Front end', 'Nunc at eleifend lacus. Curabitur eu tortor eu nisl vulputate porttitor. Donec semper, nisi sit non.', 'html');
+INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Canal boom', 'Duis pellentesque arcu enim, eget ultrices odio placerat in. Mauris facilisis sem in euismod ligula.', 'videos');
 
 INSERT INTO TB_USUARIO (login, senha, nome, sobrenome, cpf) VALUES ('guiloco', 'muitoloco', 'Guilherme', 'Trovo', '51192912345');
