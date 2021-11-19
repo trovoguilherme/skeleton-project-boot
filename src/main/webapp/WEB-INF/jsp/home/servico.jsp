@@ -64,6 +64,15 @@
             </div>
         </nav>
 
+        <c:if test="${not empty messages}">
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+          <div>
+            ${messages}
+          </div>
+        </div>
+        </c:if>
+
         <div class="container px-4">
             <div class="row gx-5">
                 <c:forEach items="${servicos}" var="servico">
@@ -84,7 +93,6 @@
                 </c:forEach>
             </div>
         </div>
-    </div>
 </body>
 
 </html>
