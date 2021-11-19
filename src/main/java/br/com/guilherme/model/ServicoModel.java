@@ -24,7 +24,7 @@ public class ServicoModel {
 
     @Column(name = "DESCRICAO")
     @NotNull(message = "Descrição obrigatório")
-    @Size(min = 2, max = 50, message = "DESCRICAO deve ser entre 2 e 50 caracteres")
+    @Size(min = 2, max = 500, message = "DESCRICAO deve ser entre 2 e 50 caracteres")
     private String descricao;
 
     @Column(name = "CATEGORIA")
