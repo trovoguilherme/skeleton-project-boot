@@ -83,9 +83,11 @@
                                     <h5 class="card-title">${servico.titulo}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">${servico.categoria}</h6>
                                     <p class="card-text">${servico.descricao}</p>
-                                    <a href="${contextPath}/servico/detalhe/${servico.id}"
-                                        class="card-link">Detalhes</a>
-                                    <a href="#" class="card-link">Another link</a>
+                                    <form:form action="${contextPath}/servico/deletar/${servico.id}" method="delete">
+                                        <a href="${contextPath}/servico/detalhe/${servico.id}" class="card-link">Detalhes</a>
+                                        <a href="${contextPath}/servico/form?page=servico-editar&id=${servico.id}" class="card-link">Editar</a>
+                                        <input type="submit" value="Excluir" class="btn btn-danger btn-xs">
+                                    </form:form>
                                 </div>
                             </div>
                         </div>
