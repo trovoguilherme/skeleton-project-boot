@@ -68,6 +68,30 @@ public class ServicoController {
         return "redirect:/servico";
     }
 
+    @DeleteMapping("/deletar/{id}")
+    public String delete(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
+
+        servicoRepository.deleteById(id);
+        redirectAttributes.addFlashAttribute("messages", "Serviço deletado com sucesso!");
+
+        return "redirect:/servico";
+    }
+
+    @PutMapping("/{id}")
+    public String update(@PathVariable("id") long id, @Valid ServicoModel servicoModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+
+        if(bindingResult.hasErrors()) {
+            model.addAttribute("categorias", servicoRepository.findAll());
+            return "home/servico-editar";
+        }
+
+        servicoModel.setId(id);
+        servicoRepository.save(servicoModel);
+        redirectAttributes.addFlashAttribute("messages", "Serviço alterado com sucesso!");
+
+        return "redirect:/servico";
+    }
+
 
 
 }
