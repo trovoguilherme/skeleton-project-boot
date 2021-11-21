@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/servico")
 public class ServicoController {
+
+    private static final String SERVICO_FOLDER = "home/";
 
     @Autowired
     ServicoRepository servicoRepository;
@@ -29,14 +32,14 @@ public class ServicoController {
             model.addAttribute("servicoModel", servicoRepository.findById(id).get());
         }
 
-        return "home/" + page;
+        return SERVICO_FOLDER + page;
     }
 
     @GetMapping()
     public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model) {
 
         model.addAttribute("servicos", servicoRepository.findAll());
-        return "home/servico";
+        return SERVICO_FOLDER + "servico";
     }
 
     @GetMapping("/detalhe/{id}")
@@ -44,22 +47,29 @@ public class ServicoController {
 
         model.addAttribute("servico", servicoRepository.findById(id).get());
 
-        return "home/servico-detalhe";
+        return SERVICO_FOLDER + "servico-detalhe";
     }
 
     @PostMapping("/procurar")
-    public String procurar(@Valid ProcurarModel procurarModel, BindingResult bindingResult, Model model) {
+    public String procurar(@Valid ProcurarModel procurarModel, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
 
-        model.addAttribute("servicos", servicoRepository.findServicoByCategoria(procurarModel.getNome()));
+        List<ServicoModel> listaDeServicos = servicoRepository.findServicoByCategoria(procurarModel.getNome());
 
-        return "home/procurar";
+        if (listaDeServicos.isEmpty()) {
+            redirectAttributes.addFlashAttribute("messages", "Nenhum serviço encontrado para essa categoria!");
+            return "redirect:/servico";
+        }
+
+        model.addAttribute("servicos", listaDeServicos);
+
+        return SERVICO_FOLDER + "procurar";
     }
 
     @PostMapping()
     public String save(@Valid ServicoModel servicoModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         if(bindingResult.hasErrors()) {
-            return "home/" + "produto-novo";
+            return SERVICO_FOLDER + "servico-novo";
         }
 
         servicoRepository.save(servicoModel);
@@ -82,7 +92,7 @@ public class ServicoController {
 
         if(bindingResult.hasErrors()) {
             model.addAttribute("categorias", servicoRepository.findAll());
-            return "home/servico-editar";
+            return SERVICO_FOLDER + "servico-editar";
         }
 
         servicoModel.setId(id);
@@ -90,6 +100,12 @@ public class ServicoController {
         redirectAttributes.addFlashAttribute("messages", "Serviço alterado com sucesso!");
 
         return "redirect:/servico";
+    }
+
+    @GetMapping("/meus-servicos")
+    public String myListOfServices() {
+
+        return SERVICO_FOLDER + "meus-servicos";
     }
 
 
