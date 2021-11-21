@@ -11,7 +11,7 @@
     <title>Home</title>
 
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
-
+    <link href="../home/css/estilo.css" rel="stylesheet" type="text/css"> 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <meta charset="utf-8">
 
@@ -19,6 +19,7 @@
 
 <body>
     <div class="container">
+        <!-- Barra de navegação -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
@@ -27,15 +28,20 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Cadastrar -->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
+                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar serviço</a>
                         </li>
+                        <!-- Ver serviços -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Serviços</a>
                         </li>
+                        <!-- Dropdown -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,33 +56,28 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+                        <!-- ? -->
                         <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
+                            <a class="nav-link disabled"></a>
                         </li>
                     </ul>
-                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
-                        method="post">
+
+                    <!-- Barra de pesquisa -->
+                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar" method="post">
                         <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Pesquisar por categoria" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form:form>
+
                 </div>
             </div>
         </nav>
-
-        <c:if test="${not empty messages}">
-            <div class="alert alert-success d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-                <div>
-                    ${messages}
-                </div>
-            </div>
-        </c:if>
-
+        
+        <!--Serviços cadastrados-->>
         <div class="container px-4">
             <div class="row gx-5">
                 <c:forEach items="${servicos}" var="servico">
                     <div class="col">
-                        <div class="p-3 border bg-light">
+                        <div class="p-3">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">${servico.titulo}</h5>
@@ -93,7 +94,7 @@
             </div>
         </div>
     </div>
-
+    
     <!-- Bootstrap Core JavaScript -->
     <script src="${contextPath}/js/bootstrap.bundle.js"></script>
 
