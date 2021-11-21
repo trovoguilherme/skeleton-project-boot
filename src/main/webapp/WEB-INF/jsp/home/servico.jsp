@@ -13,6 +13,7 @@
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
+    <meta charset="utf-8">
 
 </head>
 
@@ -53,8 +54,7 @@
                             <a class="nav-link disabled">Disabled</a>
                         </li>
                     </ul>
-                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
-                        method="post">
+                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar" method="post">
                         <form:input class="form-control me-2" type="text" path="nome" id="nome"
                             placeholder="Pesquisar por categoria" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Buscar</button>

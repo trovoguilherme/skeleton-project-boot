@@ -13,6 +13,7 @@
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
+    <meta charset="utf-8">
 
 </head>
 
