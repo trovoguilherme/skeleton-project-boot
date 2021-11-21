@@ -13,6 +13,7 @@
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
+    <meta charset="utf-8">
 
 </head>
 
@@ -55,13 +56,21 @@
                     </ul>
                     <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
                         method="post">
-                        <form:input class="form-control me-2" type="text" path="nome" id="nome"
-                            placeholder="Pesquisar por categoria" aria-label="Search" />
+                        <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Pesquisar por categoria" aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form:form>
                 </div>
             </div>
         </nav>
+
+        <c:if test="${not empty messages}">
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                <div>
+                    ${messages}
+                </div>
+            </div>
+        </c:if>
 
         <div class="container px-4">
             <div class="row gx-5">
