@@ -14,5 +14,11 @@ public class CheckoutController {
         return "checkout/checkout";
     }
 
+    @GetMapping("/sucesso")
+    public String pagamentoCoSucesso() {
+        return "checkout/pagamento-sucesso";
+    }
+
+
 
 }
