@@ -2,15 +2,20 @@ package br.com.guilherme.controller;
 
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.UserRepository;
+import br.com.guilherme.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -45,8 +50,10 @@ public class AppController {
 		return LOGIN_FOLDER + "register-success";
 	}
 	
-	@GetMapping("/users")
-	public String listUsers(Model model) {
+	@GetMapping("/users/{valor}")
+	public String listUsers(@PathVariable("valor") String valor, Model model, Principal principal, Authentication authentication, CustomUserDetailsService customUserDetailsService) {
+		System.out.println("!!!!!!!!!!! aquiiii: "+ valor);
+		System.out.println(principal.getName());
 		List<UserModel> listUserModels = userRepo.findAll();
 		model.addAttribute("listUsers", listUserModels);
 		
