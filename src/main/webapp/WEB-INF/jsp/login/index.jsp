@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <head>
-Mu	<meta charset="UTF-8"/>
+	<meta charset="UTF-8"/>
 	<title>Bem vindo a Sloth</title>
 	<link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
 
