@@ -1,48 +1,59 @@
-$(document).ready(function(){
+$('.input-cart-number').on('keyup change', function(){
+  $t = $(this);
 
-//For Card Number formatted input
-var cardNum = document.getElementById('cr_no');
-cardNum.onkeyup = function (e) {
-if (this.value == this.lastValue) return;
-var caretPosition = this.selectionStart;
-var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
-var parts = [];
+  if ($t.val().length > 3) {
+    $t.next().focus();
+  }
 
-for (var i = 0, len = sanitizedValue.length; i < len; i +=4) { parts.push(sanitizedValue.substring(i, i + 4)); } for (var i=caretPosition - 1; i>= 0; i--) {
-    var c = this.value[i];
-    if (c < '0' || c> '9') {
-        caretPosition--;
-        }
-        }
-        caretPosition += Math.floor(caretPosition / 4);
+  var card_number = '';
+  $('.input-cart-number').each(function(){
+    card_number += $(this).val() + ' ';
+    if ($(this).val().length == 4) {
+      $(this).next().focus();
+    }
+  })
 
-        this.value = this.lastValue = parts.join('-');
-        this.selectionStart = this.selectionEnd = caretPosition;
-        }
+  $('.credit-card-box .number').html(card_number);
+});
 
-        //For Date formatted input
-        var expDate = document.getElementById('exp');
-        expDate.onkeyup = function (e) {
-        if (this.value == this.lastValue) return;
-        var caretPosition = this.selectionStart;
-        var sanitizedValue = this.value.replace(/[^0-9]/gi, '');
-        var parts = [];
+$('#card-holder').on('keyup change', function(){
+  $t = $(this);
+  $('.credit-card-box .card-holder div').html($t.val());
+});
 
-        for (var i = 0, len = sanitizedValue.length; i < len; i +=2) { parts.push(sanitizedValue.substring(i, i + 2)); } for (var i=caretPosition - 1; i>= 0; i--) {
-            var c = this.value[i];
-            if (c < '0' || c> '9') {
-                caretPosition--;
-                }
-                }
-                caretPosition += Math.floor(caretPosition / 2);
+$('#card-holder').on('keyup change', function(){
+  $t = $(this);
+  $('.credit-card-box .card-holder div').html($t.val());
+});
 
-                this.value = this.lastValue = parts.join('/');
-                this.selectionStart = this.selectionEnd = caretPosition;
-                }
+$('#card-expiration-month, #card-expiration-year').change(function(){
+  m = $('#card-expiration-month option').index($('#card-expiration-month option:selected'));
+  m = (m < 10) ? '0' + m : m;
+  y = $('#card-expiration-year').val().substr(2,2);
+  $('.card-expiration-date div').html(m + '/' + y);
+})
 
-                // Radio button
-                $('.radio-group .radio').click(function(){
-                $(this).parent().parent().find('.radio').removeClass('selected');
-                $(this).addClass('selected');
-                });
-                })
+$('#card-ccv').on('focus', function(){
+  $('.credit-card-box').addClass('hover');
+}).on('blur', function(){
+  $('.credit-card-box').removeClass('hover');
+}).on('keyup change', function(){
+  $('.ccv div').html($(this).val());
+});
+
+/*function getCreditCardType(accountNumber) {
+  if (/^5[1-5]/.test(accountNumber)) {
+    result = 'mastercard';
+  } else if (/^4/.test(accountNumber)) {
+    result = 'visa';
+  } else if ( /^(5018|5020|5038|6304|6759|676[1-3])/.test(accountNumber)) {
+    result = 'maestro';
+  } else {
+    result = 'unknown'
+  }
+  return result;
+}
+
+$('#card-number').change(function(){
+  console.log(getCreditCardType($(this).val()));
+})*/
