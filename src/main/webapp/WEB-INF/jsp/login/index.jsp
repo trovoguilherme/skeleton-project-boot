@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
+Mu	<meta charset="UTF-8"/>
 	<title>Bem vindo a Sloth</title>
 	<link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
 
@@ -14,7 +14,7 @@
 <body>
 	<div class="container text-center">
 		<h1>Bem vindo a Sloth</h1>
-		<h3><a href="${contextPath}/entrar/users">Lista de usuários</a></h3>
+		<h3><a href="${contextPath}/entrar/users/${pageContext.request.userPrincipal.principal.username}">Lista de usuários</a></h3>
 		<h3><a href="${contextPath}/entrar/register">Registrar</a></h3>
 		<h3><a href="${contextPath}/login">Login</a></h3>
 	</div>
