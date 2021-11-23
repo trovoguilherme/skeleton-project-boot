@@ -5,7 +5,7 @@
 
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="ISO-8859-1">
 	<title>Resgistrado com sucesso</title>
 	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
 	<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
@@ -14,8 +14,8 @@
 </head>
 <body>
 	<div class="container text-center">
-		<h3>Você se cadastrou com sucesso!</h3>
-		<h4><a href="${contextPath}/login">Clique aqui para ir para página de Login</a></h4>
+		<h3>Vocï¿½ se cadastrou com sucesso!</h3>
+		<h4><a href="${contextPath}/login">Clique aqui para ir para pï¿½gina de Login</a></h4>
 	</div>
 	
 </body>

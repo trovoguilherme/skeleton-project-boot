@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <c:out value="${pageContext.request.userPrincipal.principal.fullName}"/>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -42,8 +43,8 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/servico/perfil">Perfil</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>

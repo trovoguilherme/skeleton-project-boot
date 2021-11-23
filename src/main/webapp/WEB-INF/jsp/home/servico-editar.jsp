@@ -8,7 +8,7 @@
 
 <head>
 
-    <title>Produtos - Cadastro</title>
+    <title>Editar Serviço</title>
 
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 

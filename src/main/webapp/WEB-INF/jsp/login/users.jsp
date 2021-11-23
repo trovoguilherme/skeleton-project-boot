@@ -2,25 +2,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@page session="true"%>
 
 <!DOCTYPE html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>List Users</title>
-	<link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
-	<c:set value="${pageContext.request.contextPath}" var="contextPath" />
+	<title>Lista de usuários</title>
 
+	<c:set value="${pageContext.request.contextPath}" var="contextPath" />
+    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
 <div class="container text-center">
 	<div>
-		<form th:action="${contextPath}/logout" method="post">
-			<p>
-				Bem vindo <b>${principal.username}</b>
-			</p>
-			<input type="submit" value="Sign Out" />
-		</form>
+
+	    Bem vindo <b>${pageContext.request.userPrincipal.principal.fullName}</b>
+
+		<a href="${contextPath}/logout">Sair</a>
+
 	</div>
 	<div>
 		<h1>List of Users</h1>
@@ -32,8 +31,8 @@
 				<tr>
 					<th>User ID</th>
 					<th>E-mail</th>
-					<th>First Name</th>
-					<th>Last Name</th>
+					<th>Nome</th>
+					<th>Sobrenome</th>
 				</tr>
 			</thead>
 			<tbody>
