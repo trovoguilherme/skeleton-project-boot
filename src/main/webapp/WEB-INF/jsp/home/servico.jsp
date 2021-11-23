@@ -11,7 +11,6 @@
     <title>Home</title>
 
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
-
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <meta charset="utf-8">
 
@@ -20,9 +19,9 @@
 <body>
     <c:out value="${pageContext.request.userPrincipal.principal.fullName}"/>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
+                <a class="navbar-brand" href="${contextPath}/servico">Home</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +34,7 @@
                                 href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            <a class="nav-link" href="#">Serviços</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -51,9 +50,7 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
+                        
                     </ul>
                     <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar" method="post">
                         <form:input class="form-control me-2" type="text" path="nome" id="nome"
@@ -77,7 +74,7 @@
             <div class="row gx-5">
                 <c:forEach items="${servicos}" var="servico">
                     <div class="col">
-                        <div class="p-3 border bg-light">
+                        <div class="p-3">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
                                     <h5 class="card-title">${servico.titulo}</h5>
