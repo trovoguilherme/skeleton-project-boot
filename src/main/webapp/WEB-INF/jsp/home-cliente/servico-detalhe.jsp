@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
 
 <head>
 
-    <title>Editar Serviço</title>
+    <title>Produtos - Detalhe</title>
 
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
@@ -19,9 +18,9 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico">Meus serviços</a>
+                <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -54,53 +53,47 @@
                             <a class="nav-link disabled">Disabled</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
+                        method="post">
+                        <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Search"
+                            aria-label="Search" />
                         <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    </form:form>
                 </div>
             </div>
         </nav>
 
-        <form:form modelAttribute="servicoModel" action="${contextPath}/servico/${servicoModel.id}" method="put">
 
-            <spring:hasBindErrors name="servicoModel">
-                <div class="alert alert-danger" role="alert">
-                    <form:errors path="*" class="has-error" />
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="well">
+
+                    <h2>Serviço</h2>
+
+                    <div class="form-group">
+                        <label class="control-label" for="titulo">Titulo:</label>
+                        <b>${servico.titulo}</b>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="nome">Categoria:</label>
+                        <label class="label label-default">${servico.categoria}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="descricao">Descrição:</label>
+                        <label class="label label-default">${servico.descricao}</label>
+                    </div>
+                    <hr>
+
+                    <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
+
+                    <br>
+                    <br>
+
                 </div>
-            </spring:hasBindErrors>
-
-            <div class="form-group">
-                <label class="control-label" for="titulo">Título:</label>
-                <form:input type="text" path="titulo" id="titulo" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="titulo" />
-                </font><br />
             </div>
-
-            <div class="form-group">
-                <label class="control-label" for="categoria">Categoria:</label>
-                <form:input type="text" path="categoria" id="categoria" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="categoria" />
-                </font><br />
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="descricao">Descrição:</label>
-                <form:textarea class="form-control" path="descricao" rows="4" cols="100" />
-                <font color="red">
-                    <form:errors path="descricao" />
-                </font><br />
-            </div>
-            <hr>
-
-            <a class="btn btn-default btn-lg" href="${contextPath}/servico">Cancelar</a>
-            <button type="submit" class="btn btn-primary btn-lg">Gravar</button>
-
-            <br>
-            <br>
-        </form:form>
+        </div>
     </div>
 
     <!-- Bootstrap Core JavaScript -->
