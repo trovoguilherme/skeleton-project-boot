@@ -20,7 +20,7 @@
             <h1>Cadastrar - Sign Up</h1>
         </div>
 
-        <form:form modelAttribute="userModel" action="${contextPath}/entrar/process-register" method="post">
+        <form:form modelAttribute="userModel" action="${contextPath}/process-register" method="post">
 
             <spring:hasBindErrors name="userModel">
                 <div class="alert alert-danger" role="alert">
