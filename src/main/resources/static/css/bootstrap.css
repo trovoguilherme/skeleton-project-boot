@@ -4551,6 +4551,10 @@ textarea.form-control-lg {
   margin-left: 1rem;
   text-decoration: none;
 }
+.card-link:hover{
+  color: #0c63e4;
+  text-decoration: underline black;
+}
 
 .card-header {
   padding: 0.5rem 1rem;

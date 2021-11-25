@@ -21,7 +21,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico">Meus serviços</a>
+                <a class="navbar-brand" href="${contextPath}/servico">Meus serviços | </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
+                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar | </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -50,18 +50,16 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
                     </ul>
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar por categoria" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
                     </form>
                 </div>
             </div>
         </nav>
-
+        <br>
+        <h3>Editar serviço</h3>
         <form:form modelAttribute="servicoModel" action="${contextPath}/servico/${servicoModel.id}" method="put">
 
             <spring:hasBindErrors name="servicoModel">
