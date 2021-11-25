@@ -62,7 +62,7 @@
             </div>
         </nav>
 
-        <form:form modelAttribute="userModel" action="${contextPath}/servico/perfil" method="put">
+        <form:form modelAttribute="userModel" action="${contextPath}/perfil/editar" method="put">
 
             <spring:hasBindErrors name="userModel">
                 <div class="alert alert-danger" role="alert">
@@ -80,7 +80,7 @@
 
             <div class="form-group">
                 <label class="control-label" for="titulo">Senha:</label>
-                <form:input type="text" path="password" id="titulo" class="form-control" maxlength="50" size="50" />
+                <form:input type="password" path="password" id="titulo" class="form-control" maxlength="50" size="50" />
                 <font color="red">
                     <form:errors path="password" />
                 </font><br />
