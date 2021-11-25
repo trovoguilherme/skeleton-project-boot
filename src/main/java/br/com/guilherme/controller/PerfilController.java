@@ -4,6 +4,8 @@ import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,19 +42,30 @@ public class PerfilController {
         return PERFIL_FOLDER + "editar-perfil";
     }
 
-    @PutMapping("/perfil")
-    public String updatePerfil(@Valid UserModel userModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    @PutMapping("/editar")
+    public String updatePerfil(@Valid UserModel userModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model, Authentication authentication) {
 
         if(bindingResult.hasErrors()) {
             //model.addAttribute("categorias", servicoRepository.findAll());
             return "editar-perfil";
         }
 
-        //userModel.setId(userModel.getId());
-        userRepository.save(userModel);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(userModel.getPassword());
+        userModel.setPassword(encodedPassword);
+
+        UserModel findUser = userRepository.findByEmail(authentication.getName());
+
+        findUser.setEmail(userModel.getEmail());
+        findUser.setPassword(userModel.getPassword());
+        findUser.setFirstName(userModel.getFirstName());
+        findUser.setLastName(userModel.getLastName());
+
+        userRepository.save(findUser);
+
         redirectAttributes.addFlashAttribute("messages", "Perfil alterado com sucesso!");
 
-        return PERFIL_FOLDER + "perfil";
+        return "redirect:/perfil";
     }
 
 
