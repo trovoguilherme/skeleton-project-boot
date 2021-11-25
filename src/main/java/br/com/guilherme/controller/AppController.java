@@ -19,7 +19,7 @@ import java.security.Principal;
 import java.util.List;
 
 @Controller
-@RequestMapping("/entrar")
+@RequestMapping("/")
 public class AppController {
 
 	private static final String LOGIN_FOLDER = "login/";
