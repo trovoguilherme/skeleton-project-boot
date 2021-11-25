@@ -25,7 +25,7 @@ public class AppController {
 	private static final String LOGIN_FOLDER = "login/";
 
 	@Autowired
-	private UserRepository userRepo;
+	private UserRepository userRepository;
 	
 	@GetMapping()
 	public String viewHomePage() {
@@ -45,7 +45,7 @@ public class AppController {
 		String encodedPassword = passwordEncoder.encode(userModel.getPassword());
 		userModel.setPassword(encodedPassword);
 		
-		userRepo.save(userModel);
+		userRepository.save(userModel);
 		
 		return LOGIN_FOLDER + "register-success";
 	}
@@ -53,8 +53,10 @@ public class AppController {
 	@GetMapping("/users/{valor}")
 	public String listUsers(@PathVariable("valor") String valor, Model model, Principal principal, Authentication authentication, CustomUserDetailsService customUserDetailsService) {
 		System.out.println("!!!!!!!!!!! aquiiii: "+ valor);
-		System.out.println(principal.getName());
-		List<UserModel> listUserModels = userRepo.findAll();
+		System.out.println("Principal: "+principal.getName());
+		System.out.println("Authentication: "+authentication.getName());
+
+		List<UserModel> listUserModels = userRepository.findAll();
 		model.addAttribute("listUsers", listUserModels);
 		
 		return LOGIN_FOLDER + "users";
