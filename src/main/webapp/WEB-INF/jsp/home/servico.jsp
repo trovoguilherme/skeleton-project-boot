@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <c:out value="${pageContext.request.userPrincipal.principal.fullName}"/>
     <div class="container">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -47,7 +46,7 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/logout">Sair</a></li>
                             </ul>
                         </li>
                         
