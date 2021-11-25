@@ -54,7 +54,7 @@
 
             <hr>
 
-            <a class="btn btn-default btn-lg" href="${contextPath}/servico">Cancelar</a>
+            <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
             <button type="submit" class="btn btn-primary btn-lg">Gravar</button>
 
             <br>
