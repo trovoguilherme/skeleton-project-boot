@@ -21,13 +21,9 @@ import java.util.List;
 public class ServicoController {
 
     private static final String SERVICO_FOLDER = "home/";
-    private static final String PERFIL_FOLDER = "perfil/";
 
     @Autowired
     ServicoRepository servicoRepository;
-
-    @Autowired
-    UserRepository userRepository;
 
     @GetMapping("/form")
     public String open(@RequestParam String page,
@@ -115,36 +111,7 @@ public class ServicoController {
         return SERVICO_FOLDER + "meus-servicos";
     }
 
-    @GetMapping("/perfil")
-    public String openPerfil(Model model, Authentication authentication) {
 
-        model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
-
-        return PERFIL_FOLDER + "perfil";
-    }
-
-    @GetMapping("/perfil/editar")
-    public String openEditarPerfil(@ModelAttribute("userModel") UserModel userModel, Authentication authentication, Model model) {
-
-        model.addAttribute("userModel", userRepository.findByEmail(authentication.getName()));
-
-        return PERFIL_FOLDER + "editar-perfil";
-    }
-
-    @PutMapping("/perfil")
-    public String updatePerfil(@Valid UserModel userModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
-
-        if(bindingResult.hasErrors()) {
-            model.addAttribute("categorias", servicoRepository.findAll());
-            return SERVICO_FOLDER + "servico-editar";
-        }
-
-        //userModel.setId(userModel.getId());
-        userRepository.save(userModel);
-        redirectAttributes.addFlashAttribute("messages", "Perfil alterado com sucesso!");
-
-        return PERFIL_FOLDER + "perfil";
-    }
 
 
 
