@@ -14,8 +14,8 @@
 <body>
 	<div class="container text-center">
 		<h1>Bem vindo a Sloth</h1>
-		<h3><a href="${contextPath}/entrar/users/${pageContext.request.userPrincipal.principal.username}">Lista de usuários</a></h3>
-		<h3><a href="${contextPath}/entrar/register">Registrar</a></h3>
+		<h3><a href="${contextPath}/users/${pageContext.request.userPrincipal.principal.username}">Lista de usuários</a></h3>
+		<h3><a href="${contextPath}/register">Registrar</a></h3>
 		<h3><a href="${contextPath}/login">Login</a></h3>
 	</div>
 	
