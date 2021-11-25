@@ -42,7 +42,7 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="${contextPath}/servico/perfil">Perfil</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/perfil">Perfil</a></li>
                                 <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
