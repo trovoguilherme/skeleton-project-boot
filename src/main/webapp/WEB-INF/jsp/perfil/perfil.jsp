@@ -98,7 +98,7 @@
         </div>
     </div>
 
-    <a href="${contextPath}/servico/perfil/editar">Editar</a>
+    <a href="${contextPath}/perfil/editar">Editar</a>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${contextPath}/js/bootstrap.bundle.js"></script>
