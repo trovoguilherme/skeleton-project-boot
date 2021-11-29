@@ -27,6 +27,9 @@ public class ComentarioModel {
     @Column(name = "MENSAGEM")
     private String mensagem;
 
+    @Column(name = "IDAUX")
+    private long idaux;
+
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
     private UserModel usuario;

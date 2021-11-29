@@ -60,13 +60,8 @@ public class ContratanteController {
 
         model.addAttribute("usuario", userRepository.findById(id).get());
 
-        List<ComentarioModel> listaDeComentarios = comentarioRepository.findAll();
-        List<ComentarioModel> minhaLista = new LinkedList<>();
-
-        //listaDeComentarios.stream().filter(c -> c.getUsuario().getId() == id).forEach(c -> minhaLista.add(c));
-
-        //System.out.println(minhaLista.size());
-
+        List<ComentarioModel> listaDeComentarios = comentarioRepository.findComentariosById(id);
+        //List<ComentarioModel> minhaLista = comentarioRepository.findComentariosById(id);
 
         model.addAttribute("comentarios", listaDeComentarios);
 
@@ -85,6 +80,7 @@ public class ContratanteController {
         UserModel user = userRepository.findById(id).get();
         comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
         comentarioModel.setUsuario(user);
+        comentarioModel.setIdaux(user.getId());
 
         comentarioRepository.save(comentarioModel);
 
