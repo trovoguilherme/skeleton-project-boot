@@ -7,20 +7,21 @@
 
 <head>
 
-    <title>Produtos - Detalhe</title>
+    <title>Perfil</title>
 
+    <meta charset="utf-8">
     <c:set value="${pageContext.request.contextPath}" var="contextPath" />
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
-    <meta charset="utf-8">
+
 
 </head>
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico" >Meus serviços | </a>
+                <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar  | </a>
+                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -41,7 +42,7 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/perfil/editar">Editar</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -49,44 +50,71 @@
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">Disabled</a>
+                        </li>
                     </ul>
                     <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
                         method="post">
-                        <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Pesquisar por categoria"
+                        <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Search"
                             aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                        <button class="btn btn-outline-success" type="submit">Search</button>
                     </form:form>
                 </div>
             </div>
         </nav>
-        <br>
-        <h3>Detalhes do serviço</h3>
+
 
         <div class="row">
             <div class="col-lg-12">
                 <div class="well">
 
+                    <h2>Perfil</h2>
+
                     <div class="form-group">
-                        <label class="control-label" for="titulo">Titulo:</label>
-                        <b>${servico.titulo}</b>
+                        <label class="control-label" for="descricao">Email:</label>
+                        <label class="label label-default">${usuario.email}</label>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="nome">Categoria:</label>
-                        <label class="label label-default">${servico.categoria}</label>
+                        <label class="control-label" for="titulo">Nome:</label>
+                        <b>${usuario.firstName}</b>
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label" for="descricao">Descrição:</label>
-                        <label class="label label-default">${servico.descricao}</label>
+                        <label class="control-label" for="nome">Sobrenome:</label>
+                        <label class="label label-default">${usuario.lastName}</label>
                     </div>
+
                     <hr>
 
                     <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
 
+                    <br>
+                    <br>
+
                 </div>
             </div>
         </div>
+
+
+    <h1>Comentários</h1>
+
+    <div class="btn-group">
+      <a href="${contextPath}/servico/comentario/${usuario.id}" class="btn btn-primary active" aria-current="page">Comentar</a>
+    </div>
+
+    <ol class="list-group list-group-numbered">
+      <c:forEach items="${comentarios}" var="comentario">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">${comentario.nome}</div>
+              ${comentario.mensagem}
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+          </li>
+      </c:forEach>
+    </ol>
     </div>
 
     <!-- Bootstrap Core JavaScript -->
