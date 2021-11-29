@@ -61,24 +61,24 @@
 
         <br>
 
-        <h3>Seus serviços</h3>
+        <h3>Prestadores de Serviços</h3>
 
         <div class="container px-4">
             <div class="row gx-5">
-                <c:forEach items="${servicos}" var="servico">
+                <c:forEach items="${usuarios}" var="usuario">
                     <div class="col">
                         <div class="p-3">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">${servico.titulo}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">${servico.categoria}</h6>
-                                    <p class="card-text">${servico.descricao}</p>
+                                    <h5 class="card-title">${usuario.email}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">${usuario.firstName}</h6>
+                                    <p class="card-text">Alguma coisa</p>
                                     <hr>
-                                    <form:form action="${contextPath}/servico/deletar/${servico.id}" method="delete">
-                                        <a href="${contextPath}/servico/detalhe/${servico.id}" class="card-link">Detalhes</a>
+
+                                        <a href="${contextPath}/servico/detalhe/${usuario.id}" class="card-link">Detalhes</a>
                                         <a href="${contextPath}/servico/form?page=servico-editar&id=${servico.id}" class="card-link">Editar</a>
                                         <input type="submit" value="Excluir" class="btn btn-danger btn-xs">
-                                    </form:form>
+
                                 </div>
                             </div>
                         </div>
