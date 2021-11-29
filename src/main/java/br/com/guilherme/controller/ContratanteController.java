@@ -1,10 +1,13 @@
 package br.com.guilherme.controller;
 
+import br.com.guilherme.model.ComentarioModel;
 import br.com.guilherme.model.ProcurarModel;
 import br.com.guilherme.model.ServicoModel;
 import br.com.guilherme.model.UserModel;
+import br.com.guilherme.repository.ComentarioRepository;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -14,16 +17,23 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.LinkedList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/servico")
-public class ServicoController {
+public class ContratanteController {
 
-    private static final String SERVICO_FOLDER = "home/";
+    private static final String SERVICO_FOLDER = "home-contratante/";
 
     @Autowired
     ServicoRepository servicoRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private ComentarioRepository comentarioRepository;
 
     @GetMapping("/form")
     public String open(@RequestParam String page,
@@ -41,16 +51,44 @@ public class ServicoController {
     @GetMapping()
     public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model) {
 
-        model.addAttribute("servicos", servicoRepository.findAll());
-        return SERVICO_FOLDER + "servico";
+        model.addAttribute("usuarios", userRepository.findAll());
+        return SERVICO_FOLDER + "principal";
     }
 
     @GetMapping("/detalhe/{id}")
     public String findById(@PathVariable("id") long id, Model model) {
 
-        model.addAttribute("servico", servicoRepository.findById(id).get());
+        model.addAttribute("usuario", userRepository.findById(id).get());
+
+        List<ComentarioModel> listaDeComentarios = comentarioRepository.findAll();
+        List<ComentarioModel> minhaLista = new LinkedList<>();
+
+        //listaDeComentarios.stream().filter(c -> c.getUsuario().getId() == id).forEach(c -> minhaLista.add(c));
+
+        //System.out.println(minhaLista.size());
+
+
+        model.addAttribute("comentarios", listaDeComentarios);
 
         return SERVICO_FOLDER + "servico-detalhe";
+    }
+
+    @GetMapping("/comentario/{id}")
+    public String abrirUmComentario(@PathVariable("id") long id, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel, Model model) {
+        model.addAttribute("id", id);
+        return "home-contratante/comentario/comentario";
+    }
+
+    @PostMapping("/comentario/{id}")
+    public String salvarUmComentario(@PathVariable("id") long id, ComentarioModel comentarioModel, Model model, Authentication authentication) {
+
+        UserModel user = userRepository.findById(id).get();
+        comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
+        comentarioModel.setUsuario(user);
+
+        comentarioRepository.save(comentarioModel);
+
+        return "redirect:/servico";
     }
 
     @PostMapping("/procurar")
