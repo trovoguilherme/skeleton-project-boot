@@ -5,13 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "USERS")
 public class UserModel {
 	
 	@Id
+	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
@@ -26,6 +29,9 @@ public class UserModel {
 	
 	@Column(name = "LAST_NAME", nullable = false, length = 20)
 	private String lastName;
+
+	@OneToMany(mappedBy = "usuario")
+	private List<ComentarioModel> comentarios;
 
 	public Long getId() {
 		return id;
@@ -66,7 +72,12 @@ public class UserModel {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	
-	
+
+	public List<ComentarioModel> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<ComentarioModel> comentarios) {
+		this.comentarios = comentarios;
+	}
 }
