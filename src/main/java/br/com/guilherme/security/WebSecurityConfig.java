@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.defaultSuccessUrl("/servico")
 				.permitAll()
 			.and()
-			.logout().logoutSuccessUrl("/entrar").permitAll();
+			.logout().logoutSuccessUrl("/").permitAll();
 	}
 	
 	
