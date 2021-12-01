@@ -97,10 +97,57 @@
             <div class="form-group">
                 <label class="control-label" for="categoria">Sobrenome:</label>
                 <form:input type="text" path="lastName" id="categoria" class="form-control" maxlength="50" size="50" />
-                    <font color="red">
-                        <form:errors path="lastName" />
-                    </font><br />
+                <font color="red">
+                    <form:errors path="lastName" />
+                </font><br />
             </div>
+
+            <div class="form-group">
+                <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
+                    <option selected>Tipo da conta</option>
+                    <form:option value="contratante" itemLabel="contratante" />
+                    <form:option value="prestador" itemLabel="prestador" />
+                </form:select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="cpf">CPF:</label>
+                <form:input type="text" path="cpf" id="cpf" class="form-control" maxlength="50" size="50" />
+                <font color="red">
+                    <form:errors path="cpf" />
+                </font><br />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="telefone">Telefone:</label>
+                <form:input type="text" path="telefone" id="telefone" class="form-control" maxlength="50" size="50" />
+                <font color="red">
+                    <form:errors path="telefone" />
+                </font><br />
+            </div>
+
+            <div class="form-floating mb-3">
+                <form:input type="text" path="estado" class="form-control" id="floatingInput" placeholder="São Paulo" />
+                <label for="floatingInput">Estado</label>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="estado">Estado:</label>
+                <form:input type="text" path="estado" id="estado" class="form-control" maxlength="50" size="50" />
+                <font color="red">
+                    <form:errors path="estado" />
+                </font><br />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="biografia">Biográfia:</label>
+                <form:textarea id="biografia" class="form-control" path="biografia" rows="4" cols="100" />
+                <font color="red">
+                    <form:errors path="biografia" />
+                </font><br />
+
+            </div>
+
             <hr>
 
             <a class="btn btn-default btn-lg" href="${contextPath}/servico">Cancelar</a>

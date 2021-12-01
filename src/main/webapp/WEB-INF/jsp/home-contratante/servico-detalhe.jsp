@@ -86,6 +86,31 @@
                         <label class="label label-default">${usuario.lastName}</label>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="cpf">CPF:</label>
+                        <label class="label label-default">${usuario.cpf}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="tipoDaConta">Tipo da conta:</label>
+                        <label class="label label-default">${usuario.tipoDaConta}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="telefone">Telefone:</label>
+                        <label class="label label-default">${usuario.telefone}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="estado">Estado:</label>
+                        <label class="label label-default">${usuario.estado}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="biografia">Biografia:</label>
+                        <label class="label label-default">${usuario.biografia}</label>
+                    </div>
+
                     <hr>
 
                     <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
@@ -98,23 +123,28 @@
         </div>
 
 
-    <h1>Comentários</h1>
+        <h1>Comentários</h1>
 
-    <div class="btn-group">
-      <a href="${contextPath}/servico/comentario/${usuario.id}" class="btn btn-primary active" aria-current="page">Comentar</a>
-    </div>
+        <div class="btn-group">
+            <a href="${contextPath}/servico/comentario/${usuario.id}" class="btn btn-primary active"
+                aria-current="page">Comentar</a>
+        </div>
 
-    <ol class="list-group list-group-numbered">
-      <c:forEach items="${comentarios}" var="comentario">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">${comentario.nome}</div>
-              ${comentario.mensagem}
-            </div>
-            <span class="badge bg-primary rounded-pill">14</span>
-          </li>
-      </c:forEach>
-    </ol>
+        <ol class="list-group list-group-numbered">
+            <c:forEach items="${comentarios}" var="comentario">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="fw-bold">${comentario.nome}</div>
+                        ${comentario.mensagem}
+                    </div>
+                    <span class="badge bg-primary rounded-pill">14</span>
+                </li>
+            </c:forEach>
+        </ol>
+
+        <h1>Lista de serviços</h1>
+
+
     </div>
 
     <!-- Bootstrap Core JavaScript -->

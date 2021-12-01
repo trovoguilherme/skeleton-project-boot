@@ -1,5 +1,7 @@
 package br.com.guilherme.model;
 
+import lombok.Data;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
+@Data
 @Entity
 @Table(name = "USERS")
 public class UserModel {
@@ -33,51 +36,19 @@ public class UserModel {
 	@OneToMany(mappedBy = "usuario")
 	private List<ComentarioModel> comentarios;
 
-	public Long getId() {
-		return id;
-	}
+	@Column(name = "CPF")
+	private String cpf;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	@Column(name = "ESTADO")
+	private String estado;
 
-	public String getEmail() {
-		return email;
-	}
+	@Column(name = "TELEFONE")
+	private String telefone;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	@Column(name = "biografia")
+	private String biografia;
 
-	public String getPassword() {
-		return password;
-	}
+	@Column(name = "TIPO_DA_CONTA")
+	private String tipoDaConta;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public List<ComentarioModel> getComentarios() {
-		return comentarios;
-	}
-
-	public void setComentarios(List<ComentarioModel> comentarios) {
-		this.comentarios = comentarios;
-	}
 }

@@ -86,6 +86,31 @@
                         <label class="label label-default">${usuario.lastName}</label>
                     </div>
 
+                    <div class="form-group">
+                        <label class="control-label" for="cpf">CPF:</label>
+                        <label class="label label-default">${usuario.cpf}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="tipoDaConta">Tipo da conta:</label>
+                        <label class="label label-default">${usuario.tipoDaConta}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="telefone">Telefone:</label>
+                        <label class="label label-default">${usuario.telefone}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="estado">Estado:</label>
+                        <label class="label label-default">${usuario.estado}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="biografia">Biografia:</label>
+                        <label class="label label-default">${usuario.biografia}</label>
+                    </div>
+
                     <hr>
 
                     <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
