@@ -14,9 +14,10 @@
 <body>
 	<div class="container text-center">
 		<h1>Bem vindo a Sloth</h1>
-		<h3><a href="${contextPath}/users/${pageContext.request.userPrincipal.principal.username}">Lista de usuários</a></h3>
+		<h3><a href="${contextPath}/users/${pageContext.request.userPrincipal.principal.username}">Lista de usuï¿½rios</a></h3>
 		<h3><a href="${contextPath}/register">Registrar</a></h3>
 		<h3><a href="${contextPath}/login">Login</a></h3>
+		<a href="https://api.whatsapp.com/send/?phone=11999181762&text&app_absent=0">Clica porara</a>
 	</div>
 	
 </body>
