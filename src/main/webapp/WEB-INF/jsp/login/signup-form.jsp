@@ -52,6 +52,36 @@
                 <label for="floatingInput">Sobrenome</label>
             </div>
 
+            <div class="form-group">
+                <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
+                    <option selected>Tipo da conta</option>
+                    <form:option value="contratante" itemLabel="contratante" />
+                    <form:option value="prestador" itemLabel="prestador" />
+                </form:select>
+            </div>
+
+            <div class="form-floating mb-3">
+                <form:input type="text" path="cpf" class="form-control" id="floatingInput"
+                    placeholder="111.111.111-11" />
+                <label for="floatingInput">CPF</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <form:input type="text" path="telefone" class="form-control" id="floatingInput"
+                    placeholder="(11)99999-9999" />
+                <label for="floatingInput">Telefone</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <form:input type="text" path="estado" class="form-control" id="floatingInput" placeholder="São Paulo" />
+                <label for="floatingInput">Estado</label>
+            </div>
+
+            <div class="form-floating">
+                <form:textarea class="form-control" placeholder="Breve decrição" path="biografia" id="floatingTextarea2" style="height: 100px"/>
+                    <label for="floatingTextarea2">Comments</label>
+            </div>
+
             <hr>
 
             <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
