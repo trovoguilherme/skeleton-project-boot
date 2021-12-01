@@ -60,6 +60,11 @@ public class PerfilController {
         findUser.setPassword(userModel.getPassword());
         findUser.setFirstName(userModel.getFirstName());
         findUser.setLastName(userModel.getLastName());
+        findUser.setCpf(userModel.getCpf());
+        findUser.setEstado(userModel.getEstado());
+        findUser.setTelefone(userModel.getTelefone());
+        findUser.setBiografia(userModel.getBiografia());
+        findUser.setTipoDaConta(userModel.getTipoDaConta());
 
         userRepository.save(findUser);
 
