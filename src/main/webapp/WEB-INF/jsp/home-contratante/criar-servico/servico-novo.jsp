@@ -62,7 +62,7 @@
         </nav>
         <br>
         <h3>Cadastro de serviço</h3>
-        <form:form modelAttribute="servicoModel" action="${contextPath}/servico" method="post">
+        <form:form modelAttribute="servicoModel" action="${contextPath}/servico/cadastrar/${id}" method="post">
 
             <spring:hasBindErrors name="servicoModel">
                 <div class="alert alert-danger" role="alert">
@@ -83,6 +83,23 @@
                 <form:input type="text" path="categoria" id="categoria" class="form-control" maxlength="50" size="50" />
                 <font color="red">
                     <form:errors path="categoria" />
+                </font><br />
+            </div>
+
+            <div class="form-group">
+                <form:select path="status" class="form-select" aria-label="Default select example">
+                    <option selected>Status</option>
+                    <form:option value="Aberto" itemLabel="Aberto"/>
+                    <form:option value="Fazendo" itemLabel="Fazendo"/>
+                    <form:option value="Finalizado" itemLabel="Finalizado"/>
+                </form:select>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label" for="linguagem">Linguagem:</label>
+                <form:textarea class="form-control" path="linguagem" rows="4" cols="100" />
+                <font color="red">
+                    <form:errors path="linguagem" />
                 </font><br />
             </div>
 

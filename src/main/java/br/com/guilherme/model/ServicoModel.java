@@ -32,5 +32,25 @@ public class ServicoModel {
     @Size(min = 2, max = 50, message = "CATEGORIA deve ser entre 2 e 50 caracteres")
     private String categoria;
 
+    @Column(name = "LINGUAGEM")
+    @NotNull(message = "Linguagem obrigatório")
+    @Size(min = 2, max = 50, message = "LIGUAGEM deve ser entre 2 e 50 caracteres")
+    private String linguagem;
+
+    @Column(name = "STATUS")
+    @NotNull(message = "Status obrigatório")
+    private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_USUARIO")
+    private UserModel usuarioServico;
+
+    @Column(name = "IDAUX")
+    private long idaux;
+
+    @Column(name = "NOME")
+    @NotNull(message = "Nome obrigatório")
+    private String nome; //email ed quem criou o servico
+
 
 }
