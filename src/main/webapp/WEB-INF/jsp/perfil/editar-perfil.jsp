@@ -126,18 +126,39 @@
                 </font><br />
             </div>
 
-            <div class="form-floating mb-3">
-                <form:input type="text" path="estado" class="form-control" id="floatingInput" placeholder="São Paulo" />
-                <label for="floatingInput">Estado</label>
-            </div>
-
             <div class="form-group">
-                <label class="control-label" for="estado">Estado:</label>
-                <form:input type="text" path="estado" id="estado" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="estado" />
-                </font><br />
-            </div>
+                        <form:select path="estado" class="form-select" aria-label="Default select example">
+                            <option selected>Estado</option>
+                            <form:option value="AC" itemLabel="Acre"/>
+                            <form:option value="AL" itemLabel="Alagoas"/>
+                            <form:option value="AP" itemLabel="Amapá"/>
+                            <form:option value="AM" itemLabel="Amazonas"/>
+                            <form:option value="BA" itemLabel="Bahia"/>
+                            <form:option value="CE" itemLabel="Ceará"/>
+                            <form:option value="DF" itemLabel="Distrito Federal"/>
+                            <form:option value="ES" itemLabel="Espírito Santo"/>
+                            <form:option value="GO" itemLabel="Goiás"/>
+                            <form:option value="MA" itemLabel="Maranhão"/>
+                            <form:option value="MT" itemLabel="Mato Grosso"/>
+                            <form:option value="MS" itemLabel="Mato Grosso do Sul"/>
+                            <form:option value="MG" itemLabel="Minas Gerais"/>
+                            <form:option value="PA" itemLabel="Pará"/>
+                            <form:option value="PB" itemLabel="Paraíba"/>
+                            <form:option value="PR" itemLabel="Paraná"/>
+                            <form:option value="PE" itemLabel="Pernambuco"/>
+                            <form:option value="PI" itemLabel="Piauí"/>
+                            <form:option value="RJ" itemLabel="Rio de Janeiro"/>
+                            <form:option value="RN" itemLabel="Rio Grande do Norte"/>
+                            <form:option value="RS" itemLabel="Rio Grande do Sul"/>
+                            <form:option value="RO" itemLabel="Rondônia"/>
+                            <form:option value="RR" itemLabel="Roraima"/>
+                            <form:option value="SC" itemLabel="Santa Catarina"/>
+                            <form:option value="SP" itemLabel="São Paulo"/>
+                            <form:option value="SE" itemLabel="Sergipe"/>
+                            <form:option value="TO" itemLabel="Tocantins"/>
+                            <form:option value="EX" itemLabel="Estrangeiro"/>
+                        </form:select>
+                    </div>
 
             <div class="form-group">
                 <label class="control-label" for="biografia">Biográfia:</label>
