@@ -1,5 +1,6 @@
 package br.com.guilherme.repository;
 
+import br.com.guilherme.model.ComentarioModel;
 import br.com.guilherme.model.ServicoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,5 +19,8 @@ public interface ServicoRepository extends JpaRepository<ServicoModel, Long> {
     @Modifying
     @Query("DELETE ServicoModel WHERE id = ?1")
     void deleteById(long id);
+
+    @Query("SELECT s from ServicoModel s WHERE s.idaux = ?1")
+    List<ServicoModel> findServicosById(long id);
 
 }
