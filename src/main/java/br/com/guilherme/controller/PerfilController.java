@@ -2,6 +2,7 @@ package br.com.guilherme.controller;
 
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.UserRepository;
+import br.com.guilherme.service.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,7 +25,10 @@ public class PerfilController {
     private static final String PERFIL_FOLDER = "perfil/";
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    PerfilService perfilService;
 
     @GetMapping()
     public String openPerfil(Model model, Authentication authentication) {
@@ -50,28 +54,14 @@ public class PerfilController {
             return "editar-perfil";
         }
 
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(userModel.getPassword());
-        userModel.setPassword(encodedPassword);
-
-        UserModel findUser = userRepository.findByEmail(authentication.getName());
-
-        findUser.setEmail(userModel.getEmail());
-        findUser.setPassword(userModel.getPassword());
-        findUser.setFirstName(userModel.getFirstName());
-        findUser.setLastName(userModel.getLastName());
-        findUser.setCpf(userModel.getCpf());
-        findUser.setEstado(userModel.getEstado());
-        findUser.setTelefone(userModel.getTelefone());
-        findUser.setBiografia(userModel.getBiografia());
-        findUser.setTipoDaConta(userModel.getTipoDaConta());
-
-        userRepository.save(findUser);
+        perfilService.update(userModel, authentication);
 
         redirectAttributes.addFlashAttribute("messages", "Perfil alterado com sucesso!");
 
         return "redirect:/perfil";
     }
+
+
 
 
 }
