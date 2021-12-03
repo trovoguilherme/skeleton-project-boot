@@ -7,6 +7,7 @@ import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.ComentarioRepository;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
+import br.com.guilherme.service.ContratanteService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -35,6 +36,9 @@ public class ContratanteController {
     @Autowired
     private ComentarioRepository comentarioRepository;
 
+    @Autowired
+    private ContratanteService contratanteService;
+
     @GetMapping("/form")
     public String open(@RequestParam String page,
                        @RequestParam(required = false) Long id,
@@ -50,9 +54,9 @@ public class ContratanteController {
 
     @GetMapping()
     public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model, Authentication authentication) {
-
-        model.addAttribute("usuarios", userRepository.findUsersWithoutMe(authentication.getName()));
-        return SERVICO_FOLDER + "principal";
+        String page = contratanteService.whichPage(authentication);
+        model.addAttribute("usuarios", userRepository.findUsersWithoutMeAndOnlyPrestador(authentication.getName()));
+        return page;
     }
 
     @GetMapping("/detalhe/{id}")
@@ -82,7 +86,7 @@ public class ContratanteController {
 
         UserModel user = userRepository.findById(id).get();
         comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
-        comentarioModel.setUsuario(user);
+        comentarioModel.setUsuario(userRepository.findByEmail(authentication.getName()));
         comentarioModel.setIdaux(user.getId());
 
         comentarioRepository.save(comentarioModel);
@@ -160,7 +164,7 @@ public class ContratanteController {
         UserModel user = userRepository.findById(id).get();
 
         servicoModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
-        servicoModel.setUsuarioServico(user);
+        servicoModel.setUsuarioServico(userRepository.findByEmail(authentication.getName()));
         servicoModel.setIdaux(user.getId());
 
         servicoRepository.save(servicoModel);
