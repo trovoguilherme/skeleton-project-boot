@@ -49,14 +49,15 @@ public class ContratanteController {
     }
 
     @GetMapping()
-    public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model) {
+    public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model, Authentication authentication) {
 
-        model.addAttribute("usuarios", userRepository.findAll());
+        model.addAttribute("usuarios", userRepository.findUsersWithoutMe(authentication.getName()));
         return SERVICO_FOLDER + "principal";
     }
 
     @GetMapping("/detalhe/{id}")
     public String findById(@PathVariable("id") long id, Model model) {
+        UserModel user = userRepository.findById(id).get();
 
         model.addAttribute("usuario", userRepository.findById(id).get());
 
@@ -64,13 +65,15 @@ public class ContratanteController {
         //List<ComentarioModel> minhaLista = comentarioRepository.findComentariosById(id);
 
         model.addAttribute("comentarios", listaDeComentarios);
+        model.addAttribute("servicos", servicoRepository.findServicosById(id));
+        model.addAttribute("whatsapp", user.getTelefone());
 
         return SERVICO_FOLDER + "servico-detalhe";
     }
 
     @GetMapping("/comentario/{id}")
     public String abrirUmComentario(@PathVariable("id") long id, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel, Model model) {
-        model.addAttribute("id", id);
+        model.addAttribute("id", id); //Usado para pegar o id do perfil
         return "home-contratante/comentario/comentario";
     }
 
@@ -143,6 +146,26 @@ public class ContratanteController {
     public String myListOfServices() {
 
         return SERVICO_FOLDER + "meus-servicos";
+    }
+
+    @GetMapping("/cadastrar/{id}")
+    public String openCadastrarServico(@PathVariable("id") long id, @ModelAttribute("servicoModel") ServicoModel servicoModel, Model model) {
+        model.addAttribute("id", id);
+        return SERVICO_FOLDER + "criar-servico/servico-novo";
+    }
+
+    @PostMapping("/cadastrar/{id}")
+    public String salvarUmServico(@PathVariable("id") long id, ServicoModel servicoModel, Model model, Authentication authentication) {
+
+        UserModel user = userRepository.findById(id).get();
+
+        servicoModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
+        servicoModel.setUsuarioServico(user);
+        servicoModel.setIdaux(user.getId());
+
+        servicoRepository.save(servicoModel);
+
+        return "redirect:/servico";
     }
 
 
