@@ -148,7 +148,7 @@
 
     <h1>Lista de serviços</h1>
     <div class="btn-group">
-            <a href="${contextPath}/servico/cadastrar/${usuario.id}" class="btn btn-primary active" aria-current="page">Cadastrar</a>
+            <a href="${contextPath}/servico/cadastrar/${usuario.id}" class="btn btn-primary active" aria-current="page">Contratar</a>
     </div>
 
 
