@@ -36,13 +36,16 @@ public class UserModel {
 	@OneToMany(mappedBy = "usuario")
 	private List<ComentarioModel> comentarios;
 
-	@Column(name = "CPF")
+	@OneToMany(mappedBy = "usuarioServico")
+	private List<ServicoModel> servicos;
+
+	@Column(name = "CPF", length = 11)
 	private String cpf;
 
-	@Column(name = "ESTADO")
+	@Column(name = "ESTADO", length = 2)
 	private String estado;
 
-	@Column(name = "TELEFONE")
+	@Column(name = "TELEFONE" , length = 11)
 	private String telefone;
 
 	@Column(name = "biografia")
