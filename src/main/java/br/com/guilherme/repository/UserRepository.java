@@ -10,7 +10,7 @@ public interface UserRepository extends JpaRepository<UserModel, Long> {
 	@Query("SELECT u FROM UserModel u WHERE u.email = ?1")
 	public UserModel findByEmail(String email);
 
-	@Query("SELECT u FROM UserModel u WHERE u.email != ?1")
-	public List<UserModel> findUsersWithoutMe(String email);
+	@Query("SELECT u FROM UserModel u WHERE u.email != ?1 AND u.tipoDaConta = 'prestador'")
+	public List<UserModel> findUsersWithoutMeAndOnlyPrestador(String email);
 	
 }
