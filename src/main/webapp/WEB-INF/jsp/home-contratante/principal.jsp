@@ -18,7 +18,7 @@
 
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="${contextPath}/servico" style="text-decoration: underline" >Home | </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -43,6 +43,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="${contextPath}/perfil">Perfil</a></li>
                                 <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/historico">Histórico de serviço</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
