@@ -58,7 +58,7 @@ public class ContratanteController {
     }
 
     @GetMapping("/detalhe/{id}")
-    public String findById(@PathVariable("id") long id, Model model) {
+    public String findById(@PathVariable("id") long id, Model model, @ModelAttribute("procurarModel") ProcurarModel procurarModel, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel) {
         UserModel user = userRepository.findById(id).get();
 
         model.addAttribute("usuario", userRepository.findById(id).get());
@@ -73,14 +73,8 @@ public class ContratanteController {
         return SERVICO_FOLDER + "servico-detalhe";
     }
 
-    @GetMapping("/comentario/{id}")
-    public String abrirUmComentario(@PathVariable("id") long id, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel, Model model) {
-        model.addAttribute("id", id); //Usado para pegar o id do perfil
-        return "home-contratante/comentario/comentario";
-    }
-
     @PostMapping("/comentario/{id}")
-    public String salvarUmComentario(@PathVariable("id") long id, ComentarioModel comentarioModel, Model model, Authentication authentication) {
+    public String salvarUmComentario(@PathVariable("id") long id, ComentarioModel comentarioModel, Model model, Authentication authentication, @ModelAttribute("procurarModel") ProcurarModel procurarModel) {
 
         UserModel user = userRepository.findById(id).get();
         comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
@@ -89,7 +83,15 @@ public class ContratanteController {
 
         comentarioRepository.save(comentarioModel);
 
-        return "redirect:/servico";
+        model.addAttribute("usuario", userRepository.findById(id).get());
+
+        List<ComentarioModel> listaDeComentarios = comentarioRepository.findComentariosById(id);
+
+        model.addAttribute("comentarios", listaDeComentarios);
+        model.addAttribute("servicos", servicoRepository.findServicosById(id));
+        model.addAttribute("whatsapp", user.getTelefone());
+
+        return SERVICO_FOLDER + "servico-detalhe";
     }
 
     @PostMapping("/procurar")
