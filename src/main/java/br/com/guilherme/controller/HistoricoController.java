@@ -29,7 +29,8 @@ public class HistoricoController {
     }
 
     @GetMapping("/{status}")
-    public String openStatus(@PathVariable("status") String status, Model model) {
+    public String openStatus(@PathVariable("status") String status, Model model, Authentication authentication) {
+        UserModel user = userRepository.findByEmail(authentication.getName());
         String page = "";
         if (status.equalsIgnoreCase("aberto")) {
             page = "home-contratante/historico/aberto";
@@ -39,7 +40,7 @@ public class HistoricoController {
             page = "home-contratante/historico/finalizado";
         }
 
-        model.addAttribute("servicosPorStatus", servicoRepository.findServicosByStatus(status));
+        model.addAttribute("servicosPorStatus", servicoRepository.findServicosMyServicesByStatus(user, status));
 
         return page;
     }
