@@ -153,7 +153,7 @@ public class ContratanteController {
     @GetMapping("/cadastrar/{id}")
     public String openCadastrarServico(@PathVariable("id") long id, @ModelAttribute("servicoModel") ServicoModel servicoModel, Model model) {
         model.addAttribute("id", id);
-        return SERVICO_FOLDER + "criar-servico/servico-novo";
+        return SERVICO_FOLDER + "servico/servico-novo";
     }
 
     @PostMapping("/cadastrar/{id}")
@@ -168,6 +168,12 @@ public class ContratanteController {
         servicoRepository.save(servicoModel);
 
         return "redirect:/servico";
+    }
+
+    @GetMapping("/detalhe/{id}/cadastrado")
+    public String abrirServico(@PathVariable("id") long id, Model model) {
+        model.addAttribute("servico", servicoRepository.findById(id).get());
+        return SERVICO_FOLDER + "servico/detalhe";
     }
 
 
