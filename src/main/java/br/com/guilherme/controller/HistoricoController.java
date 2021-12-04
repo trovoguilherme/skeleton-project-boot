@@ -23,7 +23,7 @@ public class HistoricoController {
     @GetMapping()
     public String open(Model model, Authentication authentication) {
         UserModel user = userRepository.findByEmail(authentication.getName());
-        model.addAttribute("servicos", servicoRepository.findAll());
+        model.addAttribute("servicos", servicoRepository.findMyServices(user));
         return "home-contratante/historico/historico";
     }
 
