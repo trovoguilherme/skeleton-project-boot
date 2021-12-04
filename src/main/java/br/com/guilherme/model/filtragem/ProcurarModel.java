@@ -1,4 +1,4 @@
-package br.com.guilherme.model;
+package br.com.guilherme.model.filtragem;
 
 import lombok.Data;
 
