@@ -27,6 +27,7 @@ public class ComentarioModel {
     @Column(name = "MENSAGEM")
     private String mensagem;
 
+    /*ID Usado para saber pra quem foi feito o comentário*/
     @Column(name = "IDAUX")
     private long idaux;
 
