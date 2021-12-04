@@ -45,7 +45,7 @@ public class ServicoModel {
     @JoinColumn(name = "ID_USUARIO")
     private UserModel usuarioServico;
 
-    /*ID Usado para saber pra quem foi feito o comentário*/
+    /*ID Usado para saber pra quem foi feito o servico*/
     @Column(name = "IDAUX")
     private long idaux;
 
