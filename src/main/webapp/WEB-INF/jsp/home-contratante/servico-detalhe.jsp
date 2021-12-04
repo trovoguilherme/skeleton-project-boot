@@ -164,7 +164,7 @@
                                 <p class="card-text">Alguma coisa</p>
                                 <hr>
 
-                                <a href="${contextPath}/servico/detalhe/${usuario.id}/cadastrado" class="card-link">Detalhes</a>
+                                <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado" class="card-link">Detalhes</a>
                                 <a href="${contextPath}/servico/form?page=servico-editar&id=${servico.id}"
                                    class="card-link">Editar</a>
                                 <input type="submit" value="Excluir" class="btn btn-danger btn-xs">
