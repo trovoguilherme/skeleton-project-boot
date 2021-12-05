@@ -17,7 +17,7 @@ public class ContratanteService {
         UserModel findUser = userRepository.findByEmail(authentication.getName());
 
         if (findUser.getTipoDaConta().equalsIgnoreCase("contratante")) {
-            return "home-contratante/principal";
+            return "home-contratante/home";
         } else {
             return "home-cliente/servico";
         }
