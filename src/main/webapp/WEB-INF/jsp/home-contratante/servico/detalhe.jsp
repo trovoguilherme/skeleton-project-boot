@@ -98,7 +98,7 @@
 
                 <div class="form-group">
                     <label class="control-label" for="telefone">Criador:</label>
-                    <label class="label label-default">${servico.nome}</label>
+                    <label class="label label-default">${servico.emailContratante}</label>
                 </div>
                 <hr>
 
