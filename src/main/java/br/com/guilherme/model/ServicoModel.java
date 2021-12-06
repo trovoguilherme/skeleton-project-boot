@@ -42,16 +42,22 @@ public class ServicoModel {
     private String status;
 
     @ManyToOne
-    @JoinColumn(name = "ID_USUARIO")
+    @JoinColumn(name = "ID_CONTRATANTE")
     private UserModel usuarioServico;
 
     /*ID Usado para saber pra quem foi feito o servico*/
-    @Column(name = "IDAUX")
+    @Column(name = "ID_PRESTADOR")
     private long idaux;
 
-    @Column(name = "NOME")
+    @Column(name = "EMAIL_CONTRATANTE")
     @NotNull(message = "Nome obrigatório")
-    private String nome; //email ed quem criou o servico
+    private String emailContratante; //email ed quem criou o servico
+
+    @Column(name = "EMAIL_PRESTADOR")
+    @NotNull(message = "Nome obrigatório")
+    private String emailPrestador; //email do dono servico
+
+
 
 
 }
