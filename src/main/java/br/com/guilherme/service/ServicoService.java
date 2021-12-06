@@ -26,9 +26,10 @@ public class ServicoService {
     public void salvar(long id, ServicoModel servicoModel, Authentication authentication) {
         UserModel user = userRepository.findById(id).get();
 
-        servicoModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
+        servicoModel.setEmailContratante(userRepository.findByEmail(authentication.getName()).getEmail());
         servicoModel.setUsuarioServico(userRepository.findByEmail(authentication.getName()));
         servicoModel.setIdaux(user.getId());
+        servicoModel.setEmailPrestador(user.getEmail());
 
         ServicoModel novoServico = new ServicoModel();
 
@@ -39,7 +40,8 @@ public class ServicoService {
         novoServico.setDescricao(servicoModel.getDescricao());
         novoServico.setUsuarioServico(servicoModel.getUsuarioServico());
         novoServico.setIdaux(servicoModel.getIdaux());
-        novoServico.setNome(servicoModel.getNome());
+        novoServico.setEmailContratante(servicoModel.getEmailContratante());
+        novoServico.setEmailPrestador(servicoModel.getEmailPrestador());
 
         servicoRepository.save(novoServico);
     }
