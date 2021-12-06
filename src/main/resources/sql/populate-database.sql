@@ -7,3 +7,5 @@ INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NE
 INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Tik Tok', 'Maecenas fringilla scelerisque metus, et varius lectus egestas eget. Curabitur tristique magna quis.', 'videos');
 INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Front end', 'Nunc at eleifend lacus. Curabitur eu tortor eu nisl vulputate porttitor. Donec semper, nisi sit non.', 'html');
 INSERT INTO TB_SERVICO (ID, TITULO, DESCRICAO, CATEGORIA) VALUES (SERVICO_SEQ.NEXTVAL, 'Canal boom', 'Duis pellentesque arcu enim, eget ultrices odio placerat in. Mauris facilisis sem in euismod ligula.', 'videos');
+
+INSERT INTO USERS (ID, EMAIL, PASSWORD, FIRST_NAME, LAST_NAME, usuario, usuarioServico, CPF, ESTADO, TELEFONE, biografia, TIPO_DA_CONTA) VALUES (1, );

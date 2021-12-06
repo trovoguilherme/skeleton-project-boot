@@ -8,6 +8,7 @@ import br.com.guilherme.repository.ComentarioRepository;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
 import br.com.guilherme.service.ContratanteService;
+import br.com.guilherme.service.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,9 @@ public class ContratanteController {
 
     @Autowired
     private ContratanteService contratanteService;
+
+    @Autowired
+    private ServicoService servicoService;
 
     @GetMapping("/form")
     public String open(@RequestParam String page,
@@ -109,19 +113,6 @@ public class ContratanteController {
         return SERVICO_FOLDER + "procurar";
     }
 
-    @PostMapping()
-    public String save(@Valid ServicoModel servicoModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
-
-        if(bindingResult.hasErrors()) {
-            return SERVICO_FOLDER + "servico-novo";
-        }
-
-        servicoRepository.save(servicoModel);
-        redirectAttributes.addFlashAttribute("messages", "Serviço cadastrado com sucesso!");
-
-        return "redirect:/servico";
-    }
-
     @DeleteMapping("/deletar/{id}")
     public String delete(@PathVariable("id") long id, RedirectAttributes redirectAttributes) {
 
@@ -146,12 +137,6 @@ public class ContratanteController {
         return "redirect:/servico";
     }
 
-    @GetMapping("/meus-servicos")
-    public String myListOfServices() {
-
-        return SERVICO_FOLDER + "meus-servicos";
-    }
-
     @GetMapping("/cadastrar/{id}")
     public String openCadastrarServico(@PathVariable("id") long id, @ModelAttribute("servicoModel") ServicoModel servicoModel, Model model) {
         model.addAttribute("id", id);
@@ -159,15 +144,9 @@ public class ContratanteController {
     }
 
     @PostMapping("/cadastrar/{id}")
-    public String salvarUmServico(@PathVariable("id") long id, ServicoModel servicoModel, Model model, Authentication authentication) {
+    public String salvarUmServico(@PathVariable("id") long id, final ServicoModel servicoModel, Model model, Authentication authentication) {
 
-        UserModel user = userRepository.findById(id).get();
-
-        servicoModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
-        servicoModel.setUsuarioServico(userRepository.findByEmail(authentication.getName()));
-        servicoModel.setIdaux(user.getId());
-
-        servicoRepository.save(servicoModel);
+        servicoService.salvar(id, servicoModel, authentication);
 
         return "redirect:/servico";
     }
@@ -177,9 +156,5 @@ public class ContratanteController {
         model.addAttribute("servico", servicoRepository.findById(id).get());
         return SERVICO_FOLDER + "servico/detalhe";
     }
-
-
-
-
 
 }
