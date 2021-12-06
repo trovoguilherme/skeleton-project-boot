@@ -7,6 +7,7 @@ import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.ComentarioRepository;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
+import br.com.guilherme.service.ComentarioService;
 import br.com.guilherme.service.ContratanteService;
 import br.com.guilherme.service.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,9 @@ public class ContratanteController {
 
     @Autowired
     private ServicoService servicoService;
+
+    @Autowired
+    private ComentarioService comentarioService;
 
     @GetMapping("/form")
     public String open(@RequestParam String page,
@@ -79,19 +83,11 @@ public class ContratanteController {
 
     @PostMapping("/comentario/{id}")
     public String salvarUmComentario(@PathVariable("id") long id, ComentarioModel comentarioModel, Model model, Authentication authentication, @ModelAttribute("procurarModel") ProcurarModel procurarModel) {
-
         UserModel user = userRepository.findById(id).get();
-        comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
-        comentarioModel.setUsuario(userRepository.findByEmail(authentication.getName()));
-        comentarioModel.setIdaux(user.getId());
-
-        comentarioRepository.save(comentarioModel);
-
+        comentarioService.salvar(id, comentarioModel, authentication);
+        
         model.addAttribute("usuario", userRepository.findById(id).get());
-
-        List<ComentarioModel> listaDeComentarios = comentarioRepository.findComentariosById(id);
-
-        model.addAttribute("comentarios", listaDeComentarios);
+        model.addAttribute("comentarios", comentarioRepository.findComentariosById(id));
         model.addAttribute("servicos", servicoRepository.findServicosById(id));
         model.addAttribute("whatsapp", user.getTelefone());
 
