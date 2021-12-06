@@ -71,6 +71,9 @@
             <a class="nav-link" href="${contextPath}/historico/fazendo">Fazendo</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/pausado">Pausado</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="${contextPath}/historico/finalizado">Finalizado</a>
         </li>
     </ul>
@@ -88,30 +91,78 @@
         </thead>
         <tbody>
         <c:forEach items="${servicos}" var="servico">
+            <c:set var="st" value="${servico.status}" scope="page"/>
             <tr>
                 <th scope="row">${servico.id}</th>
                 <td>${servico.titulo}</td>
                 <td>${servico.emailPrestador}</td>
                 <td>${servico.categoria}</td>
-                <td>
-                    <div class="btn-group">
-                        <button class="btn btn-secondary btn-sm" type="button">
-                            ${servico.status}
-                        </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="${contextPath}/historico/aberto/${servico.id}">Aberto</a>
-                            </li>
-                            <li><a class="dropdown-item"
-                                   href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
-                            <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a>
-                            </li>
-                        </ul>
-                    </div>
-                </td>
+                <c:if test="${st == 'aberto'}">
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-info btn-sm" type="button">
+                                ${servico.status}
+                            </button>
+                            <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"href="${contextPath}/historico/aberto/${servico.id}">Aberto</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/pausado/${servico.id}">Pausado</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </c:if>
+                <c:if test="${st == 'fazendo'}">
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-success btn-sm" type="button">
+                                ${servico.status}
+                            </button>
+                            <button type="button" class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"href="${contextPath}/historico/aberto/${servico.id}">Aberto</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/pausado/${servico.id}">Pausado</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </c:if>
+                <c:if test="${st == 'finalizado'}">
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-secondary btn-sm" type="button">
+                                ${servico.status}
+                            </button>
+                        </div>
+                    </td>
+                </c:if>
+                <c:if test="${st == 'pausado'}">
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn btn-warning btn-sm" type="button">
+                                ${servico.status}
+                            </button>
+                            <button type="button" class="btn btn-sm btn-warning dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item"href="${contextPath}/historico/aberto/${servico.id}">Aberto</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
+                                <li><a class="dropdown-item"href="${contextPath}/historico/pausado/${servico.id}">Pausado</a></li>
+                                <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </c:if>
                 <td>
                     <a class="btn btn-success btn-xs" href="${contextPath}/servico/detalhe/${servico.id}/cadastrado">Detalhes</a>
                 </td>

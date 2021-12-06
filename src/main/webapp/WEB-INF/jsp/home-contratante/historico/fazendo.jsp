@@ -71,6 +71,9 @@
             <a class="nav-link active" aria-current="page" href="${contextPath}/historico/fazendo">Fazendo</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/pausado">Pausado</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="${contextPath}/historico/finalizado">Finalizado</a>
         </li>
     </ul>
@@ -93,20 +96,18 @@
                 <td>${servico.categoria}</td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-secondary btn-sm" type="button">
+                        <button class="btn btn-success btn-sm" type="button">
                             ${servico.status}
                         </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                        <button type="button" class="btn btn-sm btn-success dropdown-toggle dropdown-toggle-split"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="${contextPath}/historico/aberto/${servico.id}">Aberto</a>
-                            </li>
-                            <li><a class="dropdown-item"
-                                   href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
-                            <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a>
-                            </li>
+                            <li><a class="dropdown-item"href="${contextPath}/historico/aberto/${servico.id}">Aberto</a></li>
+                            <li><a class="dropdown-item"href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
+                            <li><a class="dropdown-item"href="${contextPath}/historico/pausado/${servico.id}">Pausado</a></li>
+                            <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a></li>
                         </ul>
                     </div>
                 </td>

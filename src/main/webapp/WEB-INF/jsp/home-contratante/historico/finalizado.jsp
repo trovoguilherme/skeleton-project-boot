@@ -67,8 +67,12 @@
         <li class="nav-item">
             <a class="nav-link" aria-current="page" href="${contextPath}/historico/aberto">Abertos</a>
         </li>
+
         <li class="nav-item">
             <a class="nav-link" href="${contextPath}/historico/fazendo">Fazendo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/pausado">Pausado</a>
         </li>
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="${contextPath}/historico/finalizado">Finalizado</a>
@@ -91,7 +95,13 @@
                 <th scope="row">${servico.id}</th>
                 <td>${servico.titulo}</td>
                 <td>${servico.categoria}</td>
-                <td>${servico.status}</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm" type="button">
+                            ${servico.status}
+                        </button>
+                    </div>
+                </td>
                 <td>
                     <a class="btn btn-success btn-xs" href="${contextPath}/servico/detalhe/${servico.id}/cadastrado">Detalhes</a>
                 </td>
