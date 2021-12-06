@@ -90,6 +90,7 @@
                 <form:select path="status" class="form-select" aria-label="Default select example">
                     <option selected>Status</option>
                     <form:option value="aberto" itemLabel="Aberto"/>
+                    <form:option value="pausado" itemLabel="Pausado"/>
                     <form:option value="fazendo" itemLabel="Fazendo"/>
                     <form:option value="finalizado" itemLabel="Finalizado"/>
                 </form:select>
