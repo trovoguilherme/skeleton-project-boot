@@ -145,9 +145,7 @@ public class ContratanteController {
 
     @PostMapping("/cadastrar/{id}")
     public String salvarUmServico(@PathVariable("id") long id, final ServicoModel servicoModel, Model model, Authentication authentication) {
-
         servicoService.salvar(id, servicoModel, authentication);
-
         return "redirect:/servico";
     }
 
