@@ -35,6 +35,8 @@ public class HistoricoController {
         String page = "";
         if (status.equalsIgnoreCase("aberto")) {
             page = "home-contratante/historico/aberto";
+        } else if (status.equalsIgnoreCase("pausado")) {
+            page = "home-contratante/historico/pausado";
         } else if(status.equalsIgnoreCase("fazendo")) {
             page = "home-contratante/historico/fazendo";
         } else {
