@@ -1,5 +1,6 @@
 package br.com.guilherme.controller;
 
+import br.com.guilherme.model.ServicoModel;
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
@@ -43,6 +44,16 @@ public class HistoricoController {
         model.addAttribute("servicosPorStatus", servicoRepository.findServicosMyServicesByStatus(user, status));
 
         return page;
+    }
+
+    @GetMapping("/{status}/{id}")
+    public String setStatus(@PathVariable("status") String status, @PathVariable("id") long id) {
+        ServicoModel findservico = servicoRepository.findById(id).get();
+        findservico.setStatus(status);
+
+        servicoRepository.save(findservico);
+
+        return "redirect:/historico";
     }
 
 }
