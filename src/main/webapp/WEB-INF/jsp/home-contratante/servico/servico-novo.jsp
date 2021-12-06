@@ -89,9 +89,9 @@
             <div class="form-group">
                 <form:select path="status" class="form-select" aria-label="Default select example">
                     <option selected>Status</option>
-                    <form:option value="Aberto" itemLabel="Aberto"/>
-                    <form:option value="Fazendo" itemLabel="Fazendo"/>
-                    <form:option value="Finalizado" itemLabel="Finalizado"/>
+                    <form:option value="aberto" itemLabel="Aberto"/>
+                    <form:option value="fazendo" itemLabel="Fazendo"/>
+                    <form:option value="finalizado" itemLabel="Finalizado"/>
                 </form:select>
             </div>
 
