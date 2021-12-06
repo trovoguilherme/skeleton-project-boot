@@ -71,6 +71,9 @@
             <a class="nav-link" href="${contextPath}/historico/fazendo">Fazendo</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/pausado">Pausado</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="${contextPath}/historico/finalizado">Finalizado</a>
         </li>
     </ul>
@@ -93,10 +96,10 @@
                 <td>${servico.categoria}</td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-secondary btn-sm" type="button">
+                        <button class="btn btn-info btn-sm" type="button">
                             ${servico.status}
                         </button>
-                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                        <button type="button" class="btn btn-sm btn-info dropdown-toggle dropdown-toggle-split"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
