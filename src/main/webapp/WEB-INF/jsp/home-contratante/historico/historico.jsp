@@ -20,66 +20,67 @@
 <body>
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="${contextPath}/servico" style="text-decoration: underline" >Home | </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"
-                                    href="${contextPath}/servico/form?page=servico-novo">Cadastrar | </a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="${contextPath}/servico" style="text-decoration: underline">Home | </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="${contextPath}/servico/form?page=servico-novo">Cadastrar | </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Serviços</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="${contextPath}/perfil">Perfil</a></li>
+                            <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
+                            <li><a class="dropdown-item" href="${contextPath}/historico">Histórico de serviço</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Serviços</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="${contextPath}/perfil">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
-                                    <li><a class="dropdown-item" href="${contextPath}/historico">Histórico de serviço</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="${contextPath}/logout">Sair</a></li>
-                                </ul>
-                            </li>
+                            <li><a class="dropdown-item" href="${contextPath}/logout">Sair</a></li>
                         </ul>
+                    </li>
+                </ul>
 
-                    </div>
-                </div>
-            </nav>
+            </div>
+        </div>
+    </nav>
     <br>
 
     <h2>Serviços</h2>
 
     <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="${contextPath}/historico">Todos</a>
-              </li>
-              <li class="nav-item">
-                    <a class="nav-link" href="${contextPath}/historico/Aberto">Abertos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="${contextPath}/historico/Fazendo">Fazendo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="${contextPath}/historico/Finalizado">Finalizado</a>
-              </li>
-            </ul>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="${contextPath}/historico">Todos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/aberto">Abertos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/fazendo">Fazendo</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="${contextPath}/historico/finalizado">Finalizado</a>
+        </li>
+    </ul>
 
     <table class="table">
         <thead>
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Título</th>
+            <th scope="col">Prestador</th>
             <th scope="col">Categoria</th>
             <th scope="col">Status</th>
             <th scope="col">Ações</th>
@@ -90,8 +91,27 @@
             <tr>
                 <th scope="row">${servico.id}</th>
                 <td>${servico.titulo}</td>
+                <td>${servico.emailPrestador}</td>
                 <td>${servico.categoria}</td>
-                <td>${servico.status}</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm" type="button">
+                            ${servico.status}
+                        </button>
+                        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="${contextPath}/historico/aberto/${servico.id}">Aberto</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="${contextPath}/historico/fazendo/${servico.id}">Fazendo</a></li>
+                            <li><a class="dropdown-item" href="${contextPath}/historico/finalizado/${servico.id}">Finalizado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
                 <td>
                     <a class="btn btn-success btn-xs" href="${contextPath}/servico/detalhe/${servico.id}/cadastrado">Detalhes</a>
                 </td>
@@ -99,6 +119,8 @@
         </c:forEach>
         </tbody>
     </table>
+
+    <a class="btn btn-primary" href="${contextPath}/servico" role="button">Voltar</a>
 
 </div>
 
