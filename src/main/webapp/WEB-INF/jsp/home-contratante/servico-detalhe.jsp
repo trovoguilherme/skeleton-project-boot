@@ -174,30 +174,26 @@
             <a href="${contextPath}/servico/cadastrar/${usuario.id}" class="btn btn-primary active" aria-current="page">Contratar</a>
     </div>
 
-
-    <div class="container px-4">
-        <div class="row gx-5">
-            <c:forEach items="${servicos}" var="servico">
-                <div class="col">
-                    <div class="p-3">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">${servico.titulo}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">${servico.categoria}</h6>
-                                <p class="card-text">Alguma coisa</p>
-                                <hr>
-
-                                <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado" class="card-link">Detalhes</a>
-                                <a href="${contextPath}/servico/form?page=servico-editar&id=${servico.id}"
-                                   class="card-link">Editar</a>
-                                <input type="submit" value="Excluir" class="btn btn-danger btn-xs">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </c:forEach>
+    <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">Lista de serviços</h5>
+          <small>Status</small>
         </div>
+        <p class="mb-1">Descrição do serviço.</p>
+        <small>Categoria</small>
+      </a>
+      <c:forEach items="${servicos}" var="servico">
+          <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado" class="list-group-item list-group-item-action">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">${servico.titulo}</h5>
+              <small class="text-muted">${servico.status}</small>
+            </div>
+            <p class="mb-1">${servico.descricao}</p>
+            <small class="text-muted">${servico.categoria}</small>
+          </a>
+          <br>
+      </c:forEach>
     </div>
 
 </div>
