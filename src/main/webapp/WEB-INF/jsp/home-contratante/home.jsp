@@ -65,8 +65,8 @@
         <h3>Prestadores de Serviços</h3>
 
         <c:forEach items="${usuarios}" var="usuario">
-            <a href="${contextPath}/servico/detalhe/${usuario.id}">
-                <div class="card mb-3" style="max-width: 540px;">
+            <a href="${contextPath}/servico/detalhe/${usuario.id}" style="text-decoration: none; color: black;">
+                <div class="card mb-3 d-inline-flex" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
                         <c:set var="img" value="${usuario.nomeImagem}" scope="page"/>
