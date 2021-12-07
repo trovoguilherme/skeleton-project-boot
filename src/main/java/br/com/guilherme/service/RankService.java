@@ -15,15 +15,22 @@ public class RankService {
 
     public String calcularMediaDeVoto(long id) {
         List<RankModel> listaDeRank = rankRepository.findRanksById(id);
+        String resultado = "";
 
-        double aux = 0;
-        for (RankModel r : listaDeRank) {
-            aux += r.getVoto();
+        if (!listaDeRank.isEmpty()) {
+            double aux = 0;
+            for (RankModel r : listaDeRank) {
+                aux += r.getVoto();
+            }
+
+            double media = aux/listaDeRank.size();
+            resultado = String.format("%.1f", media);
+
+        } else {
+            resultado = "0";
         }
-
-        double media = aux/listaDeRank.size();
-        String resultado = String.format("%.1f", media);
         return resultado;
+
     }
 
 }
