@@ -39,6 +39,9 @@ public class UserModel {
 	@OneToMany(mappedBy = "usuarioServico")
 	private List<ServicoModel> servicos;
 
+	@OneToMany(mappedBy = "usuarioRanking")
+	private List<RankModel> rankings;
+
 	@Column(name = "CPF", length = 11)
 	private String cpf;
 
