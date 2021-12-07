@@ -5,10 +5,12 @@ import br.com.guilherme.model.filtragem.ProcurarModel;
 import br.com.guilherme.model.ServicoModel;
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.ComentarioRepository;
+import br.com.guilherme.repository.RankRepository;
 import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
 import br.com.guilherme.service.ComentarioService;
 import br.com.guilherme.service.ContratanteService;
+import br.com.guilherme.service.RankService;
 import br.com.guilherme.service.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -37,6 +39,9 @@ public class ContratanteController {
     private ComentarioRepository comentarioRepository;
 
     @Autowired
+    private RankRepository rankRepository;
+
+    @Autowired
     private ContratanteService contratanteService;
 
     @Autowired
@@ -44,6 +49,9 @@ public class ContratanteController {
 
     @Autowired
     private ComentarioService comentarioService;
+
+    @Autowired
+    private RankService rankService;
 
     @GetMapping("/form")
     public String open(@RequestParam String page,
@@ -81,6 +89,8 @@ public class ContratanteController {
         model.addAttribute("comentarios", listaDeComentarios);
         model.addAttribute("servicos", servicoRepository.findServicosById(id));
         model.addAttribute("whatsapp", user.getTelefone());
+
+        model.addAttribute("rank", rankService.calcularMediaDeVoto(id));
 
         return SERVICO_FOLDER + "servico-detalhe";
     }
