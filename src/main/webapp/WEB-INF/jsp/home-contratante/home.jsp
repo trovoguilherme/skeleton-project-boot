@@ -64,25 +64,25 @@
 
         <h3>Prestadores de Serviços</h3>
 
-        <div class="container px-4">
-            <div class="row gx-5">
-                <c:forEach items="${usuarios}" var="usuario">
-                    <div class="col">
-                        <div class="p-3">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">${usuario.email}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">${usuario.firstName}</h6>
-                                    <p class="card-text">Alguma coisa</p>
-                                    <hr>
-                                        <a href="${contextPath}/servico/detalhe/${usuario.id}" class="card-link">Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
+        <c:forEach items="${usuarios}" var="usuario">
+            <a href="${contextPath}/servico/detalhe/${usuario.id}">
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                        <c:set var="img" value="${usuario.nomeImagem}" scope="page"/>
+                      <img src="${contextPath}/imagens/helper${usuario.nomeImagem}" class="img-fluid rounded-start" alt="...">
                     </div>
-                </c:forEach>
-            </div>
-        </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">${usuario.email}</h5>
+                        <p class="card-text">${usuario.biografia}</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </a>
+        </c:forEach>
 
         <!-- Bootstrap Core JavaScript -->
         <script src="${contextPath}/js/bootstrap.bundle.js"></script>
