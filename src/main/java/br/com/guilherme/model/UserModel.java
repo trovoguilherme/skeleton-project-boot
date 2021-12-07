@@ -57,4 +57,7 @@ public class UserModel {
 	@Column(name = "TIPO_DA_CONTA")
 	private String tipoDaConta;
 
+	@Column(name = "NOME_IMAGEM")
+	private String nomeImagem;
+
 }
