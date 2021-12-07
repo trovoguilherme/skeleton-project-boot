@@ -3,6 +3,7 @@ package br.com.guilherme.controller;
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.repository.UserRepository;
 import br.com.guilherme.service.CustomUserDetailsService;
+import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +15,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.Principal;
 import java.util.List;
 
@@ -23,6 +30,7 @@ import java.util.List;
 public class AppController {
 
 	private static final String LOGIN_FOLDER = "login/";
+	private static String caminhoImagens = "C:\\Users\\Guilherme Trovo\\Documents\\imagem";
 
 	@Autowired
 	private UserRepository userRepository;
@@ -40,10 +48,22 @@ public class AppController {
 	}
 	
 	@PostMapping("/process-register")
-	public String processRegister(UserModel userModel) {
+	public String processRegister(UserModel userModel, @RequestParam("file") MultipartFile arquivo) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(userModel.getPassword());
 		userModel.setPassword(encodedPassword);
+
+		try {
+			if (!arquivo.isEmpty()) {
+				byte[] bytes = arquivo.getBytes();
+				Path caminho = Paths.get(caminhoImagens+arquivo.getOriginalFilename());
+				Files.write(caminho, bytes);
+
+				userModel.setNomeImagem(arquivo.getOriginalFilename());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		userRepository.save(userModel);
 		
