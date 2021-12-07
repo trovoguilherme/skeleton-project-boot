@@ -65,6 +65,7 @@
         </div>
     </nav>
 
+    <h1>Nota: ${rank}</h1>
 
     <div class="row">
         <div class="col-lg-12">
@@ -121,6 +122,10 @@
 
             </div>
         </div>
+    </div>
+
+    <div class="btn-group">
+        <a href="${contextPath}/rank/${usuario.id}" class="btn btn-primary active" aria-current="page">Rank</a>
     </div>
 
     <h1>Entrar em contato</h1>
@@ -197,6 +202,9 @@
     </div>
 
 </div>
+
+    <!-- jQuery -->
+    <script src="${contextPath}/js/jquery.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="${contextPath}/js/bootstrap.bundle.js"></script>
