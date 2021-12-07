@@ -112,7 +112,10 @@
             <label for="floatingTextarea2">Comments</label>
         </div>
 
-        <input type="file" name="file"/>
+        <div>
+          <label for="formFileLg" class="form-label">Foto de perfil</label>
+          <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
+        </div>
         <hr>
 
         <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
