@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
-@Table(name = "TB_RANKING")
+@Table(name = "TB_RANK")
 public class RankModel {
 
     @Id
