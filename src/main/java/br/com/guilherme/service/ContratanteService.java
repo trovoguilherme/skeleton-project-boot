@@ -19,7 +19,7 @@ public class ContratanteService {
         if (findUser.getTipoDaConta().equalsIgnoreCase("contratante")) {
             return "home-contratante/home";
         } else {
-            return "home-cliente/servico";
+            return "home-cliente/home";
         }
 
     }
