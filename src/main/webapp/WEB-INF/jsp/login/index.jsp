@@ -18,6 +18,8 @@
 		<h3><a href="${contextPath}/register">Registrar</a></h3>
 		<h3><a href="${contextPath}/login">Login</a></h3>
 		<a href="https://api.whatsapp.com/send/?phone=11999181762&text&app_absent=0">Clica porara</a>
+		<a href="${contextPath}/forgotpassword">Esqueceu a senha? Clique aqui</a>
+
 	</div>
 	
 </body>
