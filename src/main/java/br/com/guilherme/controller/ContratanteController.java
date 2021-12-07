@@ -86,26 +86,44 @@ public class ContratanteController {
         List<ComentarioModel> listaDeComentarios = comentarioRepository.findComentariosById(id);
         //List<ComentarioModel> minhaLista = comentarioRepository.findComentariosById(id);
 
+        List<ComentarioModel> listaDeComentario = comentarioRepository.findComentariosById(id);
+        UserModel auxUser = new UserModel();
+        for (ComentarioModel c: listaDeComentario) {
+            auxUser = c.getUsuario();
+        }
+
+        model.addAttribute("imagemDoComentario", auxUser.getNomeImagem());
+
+        model.addAttribute("usuario", userRepository.findById(id).get());
+
         model.addAttribute("comentarios", listaDeComentarios);
         model.addAttribute("servicos", servicoRepository.findServicosById(id));
         model.addAttribute("whatsapp", user.getTelefone());
 
         model.addAttribute("rank", rankService.calcularMediaDeVoto(id));
 
-        return SERVICO_FOLDER + "servico-detalhe";
+        return SERVICO_FOLDER + "prestador-detalhe";
     }
 
     @PostMapping("/comentario/{id}")
     public String salvarUmComentario(@PathVariable("id") long id, ComentarioModel comentarioModel, Model model, Authentication authentication, @ModelAttribute("procurarModel") ProcurarModel procurarModel) {
         UserModel user = userRepository.findById(id).get();
         comentarioService.salvar(id, comentarioModel, authentication);
-        
+
+        List<ComentarioModel> listaDeComentario = comentarioRepository.findComentariosById(id);
+        UserModel auxUser = new UserModel();
+        for (ComentarioModel c: listaDeComentario) {
+            auxUser = c.getUsuario();
+        }
+
+        model.addAttribute("imagemDoComentario", auxUser.getNomeImagem());
+
         model.addAttribute("usuario", userRepository.findById(id).get());
         model.addAttribute("comentarios", comentarioRepository.findComentariosById(id));
         model.addAttribute("servicos", servicoRepository.findServicosById(id));
         model.addAttribute("whatsapp", user.getTelefone());
 
-        return SERVICO_FOLDER + "servico-detalhe";
+        return SERVICO_FOLDER + "prestador-detalhe";
     }
 
     @PostMapping("/procurar")
