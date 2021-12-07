@@ -61,7 +61,11 @@ public class ContratanteController {
     @GetMapping()
     public String findAll(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model, Authentication authentication) {
         String page = contratanteService.whichPage(authentication);
+
+        UserModel findUser = userRepository.findByEmail(authentication.getName());
+
         model.addAttribute("usuarios", userRepository.findUsersWithoutMeAndOnlyPrestador(authentication.getName()));
+        model.addAttribute("servicos", servicoRepository.findServicosById(findUser.getId()));
         return page;
     }
 
