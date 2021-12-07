@@ -207,13 +207,6 @@
         <a href="${contextPath}/rank/${usuario.id}" class="btn btn-primary active" aria-current="page">Rank</a>
     </div>
 
-    <h1>Entrar em contato</h1>
-
-    <div class="btn-group">
-        <a href="https://api.whatsapp.com/send/?phone=${whatsapp}&text&app_absent=0" target="_blank"
-           class="btn btn-primary active" aria-current="page">Entrar em contato</a>
-    </div>
-
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
             data-bs-whatever="@mdo">Comentar
     </button>
