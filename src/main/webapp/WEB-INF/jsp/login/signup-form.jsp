@@ -5,139 +5,172 @@
 <%@ page isErrorPage="true" %>
 
 <!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Cadastrar</title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="${contextPath}/css-cadastrar-conta/theme.css" type="text/css">
 </head>
 
-<body>
-<div class="container text-center">
-    <div>
-        <h1>Cadastrar - Sign Up</h1>
+<body style="">
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                data-target="#navbar6">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block" href="#">
+            <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/logo_b_small.png">
+            <b> Sirvice<br></b>
+        </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#">&nbsp;</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
+                <li class="nav-item"><a class="nav-link text-primary" href="#" contenteditable="true">Registrar<br></a>
+                </li>
+                <li class="nav-item" style=""><a class="nav-link text-primary" href="#">Esqueci minha senha</a></li>
+            </ul>
+        </div>
     </div>
-
-    <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/process-register" method="post">
-
-         <spring:hasBindErrors name="userModel">
-            <div class="alert alert-danger" role="alert">
-                <form:errors path="*" class="has-error"/>
+</nav>
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-4">
+                <h3>Cadastrar-se</h3>
+                <p>Preencha os campos ao lado para criar sua conta</p>
+                <p class="lead mt-3"><b>Contato</b></p>
+                <p><a href="#">+11999181762</a></p>
+                <p><a href="#">SuporteSirvice@hotmail.com</a></p>
             </div>
-        </spring:hasBindErrors>
+            <div class="col-md-7 p-4" style="">
+                <h3 class="mb-3">Formulário de cadastro</h3>
 
+                <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/process-register" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="firstName" class="form-control" id="form36" placeholder="Nome" required="required"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="lastName" class="form-control" id="form37" placeholder="Sobrenome" required="required"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form:input type="email" path="email" class="form-control" id="form38" placeholder="E-mail" required="required"/>
+                    </div>
+                    <div class="form-group">
+                        <form:input type="password" path="password" class="form-control" id="form39" placeholder="Senha" required="required"/>
+                    </div>
+                    <div class="form-row" draggable="true">
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="cpf" class="form-control" id="form36" placeholder="CPF" required="required"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <form:select path="tipoDaConta" class="form-select" aria-label="Default select example" style="	min-height: 35px;	min-width: 275px;">
+                                <option selected>Tipo da conta</option>
+                                <form:option value="contratante" itemlabel="contratante"/>
 
-        <div class="form-floating mb-3">
-            <form:input type="email" path="email" class="form-control" id="floatingInput"
-                        placeholder="nome@exemplo.com.br"/>
-            <label for="floatingInput">Email</label>
-            <font color="red"><form:errors path="email"/></font><br/>
+                                <form:option value="prestador" itemlabel="prestador"/>
+
+                            </form:select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="telefone" class="form-control" id="form40" placeholder="Telefone" required="required"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <form:select path="estado" class="form-select" aria-label="Default select example" style="	min-height: 35px;	min-width: 275px;">
+                                <option selected>Estado</option>
+                                <form:option value="AC" itemlabel="Acre"/>
+
+                                <form:option value="AL" itemlabel="Alagoas"/>
+
+                                <form:option value="AP" itemlabel="Amap�"/>
+
+                                <form:option value="AM" itemlabel="Amazonas"/>
+
+                                <form:option value="BA" itemlabel="Bahia"/>
+
+                                <form:option value="CE" itemlabel="Cear�"/>
+
+                                <form:option value="DF" itemlabel="Distrito Federal"/>
+
+                                <form:option value="ES" itemlabel="Esp�rito Santo"/>
+
+                                <form:option value="GO" itemlabel="Goi�s"/>
+
+                                <form:option value="MA" itemlabel="Maranh�o"/>
+
+                                <form:option value="MT" itemlabel="Mato Grosso"/>
+
+                                <form:option value="MS" itemlabel="Mato Grosso do Sul"/>
+
+                                <form:option value="MG" itemlabel="Minas Gerais"/>
+
+                                <form:option value="PA" itemlabel="Par�"/>
+
+                                <form:option value="PB" itemlabel="Para�ba"/>
+
+                                <form:option value="PR" itemlabel="Paran�"/>
+
+                                <form:option value="PE" itemlabel="Pernambuco"/>
+
+                                <form:option value="PI" itemlabel="Piau�"/>
+
+                                <form:option value="RJ" itemlabel="Rio de Janeiro"/>
+
+                                <form:option value="RN" itemlabel="Rio Grande do Norte"/>
+
+                                <form:option value="RS" itemlabel="Rio Grande do Sul"/>
+
+                                <form:option value="RO" itemlabel="Rond�nia"/>
+
+                                <form:option value="RR" itemlabel="Roraima"/>
+
+                                <form:option value="SC" itemlabel="Santa Catarina"/>
+
+                                <form:option value="SP" itemlabel="S�o Paulo"/>
+
+                                <form:option value="SE" itemlabel="Sergipe"/>
+
+                                <form:option value="TO" itemlabel="Tocantins"/>
+
+                                <form:option value="EX" itemlabel="Estrangeiro"/>
+
+                            </form:select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form:textarea class="form-control" path="biografia" id="form43" rows="3" placeholder="Uma breve descrição sua" required="required"/>
+                    </div>
+                    <div>
+                        <label for="formFileLg" class="form-label">Foto de perfil</label>
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
+                    </div>
+                    <button type="submit" class="btn btn-danger mt-2 mr-2">Cancelar<br></button>
+                    <button type="submit" class="btn btn-primary mt-2 mr-2">Cadastrar</button>
+                </form:form>
+            </div>
         </div>
-        <div class="form-floating mb-3">
-            <form:input type="password" path="password" class="form-control" id="floatingPassword"
-                        placeholder="Senha"/>
-            <label for="floatingPassword">Senha</label>
-            <font color="red"><form:errors path="password"/></font><br/>
-        </div>
-
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="firstName" class="form-control" id="floatingInput" placeholder="Nome"/>
-            <label for="floatingInput">Nome</label>
-            <font color="red"><form:errors path="firstName"/></font><br/>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="lastName" class="form-control" id="floatingInput"
-                        placeholder="Sobrenome"/>
-            <label for="floatingInput">Sobrenome</label>
-            <font color="red"><form:errors path="lastName"/></font><br/>
-        </div>
-
-        <div class="form-group">
-            <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
-                <option selected>Tipo da conta</option>
-                <form:option value="contratante" itemLabel="contratante"/>
-                <form:option value="prestador" itemLabel="prestador"/>
-            </form:select>
-            <font color="red"><form:errors path="tipoDaConta"/></font><br/>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="cpf" class="form-control" id="floatingInput"
-                        placeholder="111.111.111-11"/>
-            <label for="floatingInput">CPF</label>
-            <font color="red"><form:errors path="cpf"/></font><br/>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="telefone" class="form-control" id="floatingInput"
-                        placeholder="(11)99999-9999"/>
-            <label for="floatingInput">Telefone</label>
-            <font color="red"><form:errors path="telefone"/></font><br/>
-        </div>
-
-        <div class="form-group">
-            <form:select path="estado" class="form-select" aria-label="Default select example">
-                <option selected>Estado</option>
-                <form:option value="AC" itemLabel="Acre"/>
-                <form:option value="AL" itemLabel="Alagoas"/>
-                <form:option value="AP" itemLabel="Amap�"/>
-                <form:option value="AM" itemLabel="Amazonas"/>
-                <form:option value="BA" itemLabel="Bahia"/>
-                <form:option value="CE" itemLabel="Cear�"/>
-                <form:option value="DF" itemLabel="Distrito Federal"/>
-                <form:option value="ES" itemLabel="Esp�rito Santo"/>
-                <form:option value="GO" itemLabel="Goi�s"/>
-                <form:option value="MA" itemLabel="Maranh�o"/>
-                <form:option value="MT" itemLabel="Mato Grosso"/>
-                <form:option value="MS" itemLabel="Mato Grosso do Sul"/>
-                <form:option value="MG" itemLabel="Minas Gerais"/>
-                <form:option value="PA" itemLabel="Par�"/>
-                <form:option value="PB" itemLabel="Para�ba"/>
-                <form:option value="PR" itemLabel="Paran�"/>
-                <form:option value="PE" itemLabel="Pernambuco"/>
-                <form:option value="PI" itemLabel="Piau�"/>
-                <form:option value="RJ" itemLabel="Rio de Janeiro"/>
-                <form:option value="RN" itemLabel="Rio Grande do Norte"/>
-                <form:option value="RS" itemLabel="Rio Grande do Sul"/>
-                <form:option value="RO" itemLabel="Rond�nia"/>
-                <form:option value="RR" itemLabel="Roraima"/>
-                <form:option value="SC" itemLabel="Santa Catarina"/>
-                <form:option value="SP" itemLabel="S�o Paulo"/>
-                <form:option value="SE" itemLabel="Sergipe"/>
-                <form:option value="TO" itemLabel="Tocantins"/>
-                <form:option value="EX" itemLabel="Estrangeiro"/>
-            </form:select>
-            <font color="red"><form:errors path="estado"/></font><br/>
-        </div>
-
-        <div class="form-floating">
-            <form:textarea class="form-control" placeholder="Breve decri��o" path="biografia" id="floatingTextarea2"
-                           style="height: 100px"/>
-            <label for="floatingTextarea2">Comments</label>
-            <font color="red"><form:errors path="biografia"/></font><br/>
-        </div>
-
-        <div>
-          <label for="formFileLg" class="form-label">Foto de perfil</label>
-          <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
-        </div>
-        <hr>
-
-        <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
-        <button type="submit" class="btn btn-primary btn-lg">Gravar</button>
-
-        <br>
-        <br>
-    </form:form>
-
+    </div>
 </div>
-<!-- Bootstrap Core JavaScript -->
-<script src="${contextPath}/js/bootstrap.bundle.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
