@@ -30,7 +30,7 @@ import java.util.List;
 public class AppController {
 
 	private static final String LOGIN_FOLDER = "login/";
-	private static String caminhoImagens = "D:\\Documentos\\Codigos\\intellij\\skeleton-project-boot\\src\\main\\resources\\static\\imagens\\helper";
+	private static String caminhoImagens = "D:\\Documentos\\Codigos\\intellij\\skeleton-project-boot\\src\\main\\resources\\static\\imagens\\";
 
 	@Autowired
 	private UserRepository userRepository;
