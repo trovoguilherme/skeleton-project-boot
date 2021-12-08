@@ -79,7 +79,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="profile__avatar">
-                            <img src="${contextPath}/imagens/helper${usuario.nomeImagem}" alt="...">
+                            <img src="${contextPath}/imagens/${usuario.nomeImagem}" alt="...">
                         </div>
                         <div class="profile__header">
                             <h4>${usuario.firstName}<small>${usuario.lastName}</small></h4>
