@@ -78,7 +78,7 @@ body {
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
-  background-color: #5f9ea0;
+  background-color: #545858;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -11261,7 +11261,7 @@ textarea.form-control-lg {
 }
 .navbar{
   position: relative;
-  background-color: #0a53be;
+  background-color:  #223d65;
   width: 198%;
   height: 100px;
   right: 632px;
