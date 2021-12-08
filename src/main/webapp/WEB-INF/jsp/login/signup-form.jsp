@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page isErrorPage="true" %>
 
 <!DOCTYPE html>
 
@@ -22,7 +23,7 @@
 
     <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/process-register" method="post">
 
-        <spring:hasBindErrors name="userModel">
+         <spring:hasBindErrors name="userModel">
             <div class="alert alert-danger" role="alert">
                 <form:errors path="*" class="has-error"/>
             </div>
@@ -33,23 +34,27 @@
             <form:input type="email" path="email" class="form-control" id="floatingInput"
                         placeholder="nome@exemplo.com.br"/>
             <label for="floatingInput">Email</label>
+            <font color="red"><form:errors path="email"/></font><br/>
         </div>
         <div class="form-floating mb-3">
             <form:input type="password" path="password" class="form-control" id="floatingPassword"
                         placeholder="Senha"/>
             <label for="floatingPassword">Senha</label>
+            <font color="red"><form:errors path="password"/></font><br/>
         </div>
 
 
         <div class="form-floating mb-3">
             <form:input type="text" path="firstName" class="form-control" id="floatingInput" placeholder="Nome"/>
             <label for="floatingInput">Nome</label>
+            <font color="red"><form:errors path="firstName"/></font><br/>
         </div>
 
         <div class="form-floating mb-3">
             <form:input type="text" path="lastName" class="form-control" id="floatingInput"
                         placeholder="Sobrenome"/>
             <label for="floatingInput">Sobrenome</label>
+            <font color="red"><form:errors path="lastName"/></font><br/>
         </div>
 
         <div class="form-group">
@@ -58,18 +63,21 @@
                 <form:option value="contratante" itemLabel="contratante"/>
                 <form:option value="prestador" itemLabel="prestador"/>
             </form:select>
+            <font color="red"><form:errors path="tipoDaConta"/></font><br/>
         </div>
 
         <div class="form-floating mb-3">
             <form:input type="text" path="cpf" class="form-control" id="floatingInput"
                         placeholder="111.111.111-11"/>
             <label for="floatingInput">CPF</label>
+            <font color="red"><form:errors path="cpf"/></font><br/>
         </div>
 
         <div class="form-floating mb-3">
             <form:input type="text" path="telefone" class="form-control" id="floatingInput"
                         placeholder="(11)99999-9999"/>
             <label for="floatingInput">Telefone</label>
+            <font color="red"><form:errors path="telefone"/></font><br/>
         </div>
 
         <div class="form-group">
@@ -104,12 +112,14 @@
                 <form:option value="TO" itemLabel="Tocantins"/>
                 <form:option value="EX" itemLabel="Estrangeiro"/>
             </form:select>
+            <font color="red"><form:errors path="estado"/></font><br/>
         </div>
 
         <div class="form-floating">
             <form:textarea class="form-control" placeholder="Breve decri��o" path="biografia" id="floatingTextarea2"
                            style="height: 100px"/>
             <label for="floatingTextarea2">Comments</label>
+            <font color="red"><form:errors path="biografia"/></font><br/>
         </div>
 
         <div>
