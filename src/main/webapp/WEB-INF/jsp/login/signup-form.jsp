@@ -5,125 +5,123 @@
 
 <!DOCTYPE html>
 
-<head>
-    <meta charset="ISO-8859-1">
-    <title>Cadastrar</title>
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Cadastrar</title>
 
-    <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
+        <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 
-    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
-</head>
+        <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
+    </head>
 
-<body>
-<div class="container text-center">
-    <div>
-        <h1>Cadastrar - Sign Up</h1>
-    </div>
-
-    <form:form modelAttribute="userModel" action="${contextPath}/process-register" method="post">
-
-        <spring:hasBindErrors name="userModel">
-            <div class="alert alert-danger" role="alert">
-                <form:errors path="*" class="has-error"/>
+    <body>
+        <br>
+        <div class="container text-center">
+            <div>
+                <h1>Cadastro de nova conta</h1>
             </div>
-        </spring:hasBindErrors>
+
+            <form:form modelAttribute="userModel" action="${contextPath}/process-register" method="post">
+
+                <spring:hasBindErrors name="userModel">
+                    <div class="alert alert-danger" role="alert">
+                        <form:errors path="*" class="has-error"/>
+                    </div>
+                </spring:hasBindErrors>
 
 
-        <div class="form-floating mb-3">
-            <form:input type="email" path="email" class="form-control" id="floatingInput"
-                        placeholder="nome@exemplo.com.br"/>
-            <label for="floatingInput">Email</label>
+                <div class="form-floating mb-3">
+                    <form:input type="email" path="email" class="form-control" id="floatingInput"
+                                placeholder="nome@exemplo.com.br"/>
+                    <label for="floatingInput">Seu e-mail</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <form:input type="password" path="password" class="form-control" id="floatingPassword"
+                                placeholder="Senha"/>
+                    <label for="floatingPassword">Sua senha</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <form:input type="text" path="firstName" class="form-control" id="floatingInput" placeholder="Nome"/>
+                    <label for="floatingInput">Seu Nome</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <form:input type="text" path="lastName" class="form-control" id="floatingInput"
+                                placeholder="Ãrea de atuaÃ§Ã£o"/>
+                    <label for="floatingInput">Sua Ã¡rea de atuaÃ§Ã£o</label>
+                </div>
+
+                <div class="form-group">
+                    <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
+                        <option selected>Tipo da conta</option>
+                        <form:option value="contratante" itemLabel="contratante"/>
+                        <form:option value="prestador" itemLabel="prestador"/>
+                    </form:select>
+                </div>
+                <br>
+                <div class="form-floating mb-3">
+                    <form:input type="text" path="cpf" class="form-control" id="floatingInput"
+                                placeholder="111.111.111-11"/>
+                    <label for="floatingInput">Seu CPF</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <form:input type="text" path="telefone" class="form-control" id="floatingInput"
+                                placeholder="(11)99999-9999"/>
+                    <label for="floatingInput">Seu Telefone</label>
+                </div>
+
+                <div class="form-group">
+                    <form:select path="estado" class="form-select" aria-label="Default select example">
+                        <option selected>Estado</option>
+                        <form:option value="AC" itemLabel="Acre"/>
+                        <form:option value="AL" itemLabel="Alagoas"/>
+                        <form:option value="AP" itemLabel="AmapÃ¡"/>
+                        <form:option value="AM" itemLabel="Amazonas"/>
+                        <form:option value="BA" itemLabel="Bahia"/>
+                        <form:option value="CE" itemLabel="CearÃ¡"/>
+                        <form:option value="DF" itemLabel="Distrito Federal"/>
+                        <form:option value="ES" itemLabel="EspÃ­rito Santo"/>
+                        <form:option value="GO" itemLabel="GoiÃ¡s"/>
+                        <form:option value="MA" itemLabel="MaranhÃ£o"/>
+                        <form:option value="MT" itemLabel="Mato Grosso"/>
+                        <form:option value="MS" itemLabel="Mato Grosso do Sul"/>
+                        <form:option value="MG" itemLabel="Minas Gerais"/>
+                        <form:option value="PA" itemLabel="ParÃ¡"/>
+                        <form:option value="PB" itemLabel="ParaÃ­ba"/>
+                        <form:option value="PR" itemLabel="ParanÃ¡"/>
+                        <form:option value="PE" itemLabel="Pernambuco"/>
+                        <form:option value="PI" itemLabel="PiauÃ­"/>
+                        <form:option value="RJ" itemLabel="Rio de Janeiro"/>
+                        <form:option value="RN" itemLabel="Rio Grande do Norte"/>
+                        <form:option value="RS" itemLabel="Rio Grande do Sul"/>
+                        <form:option value="RO" itemLabel="RondÃ´nia"/>
+                        <form:option value="RR" itemLabel="Roraima"/>
+                        <form:option value="SC" itemLabel="Santa Catarina"/>
+                        <form:option value="SP" itemLabel="SÃ£o Paulo"/>
+                        <form:option value="SE" itemLabel="Sergipe"/>
+                        <form:option value="TO" itemLabel="Tocantins"/>
+                        <form:option value="EX" itemLabel="Estrangeiro"/>
+                    </form:select>
+                </div>
+                <br>
+                <div class="form-floating">
+                    <form:textarea class="form-control" placeholder="Sobre vocÃª" path="biografia" id="floatingTextarea2"
+                                   style="height: 100px"/>
+                    <label for="floatingTextarea2">Sobre vocÃª</label>
+                </div>
+
+                <hr>
+                <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
+                <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+                <br>
+            </form:form>
+
         </div>
-        <div class="form-floating mb-3">
-            <form:input type="password" path="password" class="form-control" id="floatingPassword"
-                        placeholder="Senha"/>
-            <label for="floatingPassword">Senha</label>
-        </div>
-
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="firstName" class="form-control" id="floatingInput" placeholder="Nome"/>
-            <label for="floatingInput">Nome</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="lastName" class="form-control" id="floatingInput"
-                        placeholder="Sobrenome"/>
-            <label for="floatingInput">Sobrenome</label>
-        </div>
-
-        <div class="form-group">
-            <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
-                <option selected>Tipo da conta</option>
-                <form:option value="contratante" itemLabel="contratante"/>
-                <form:option value="prestador" itemLabel="prestador"/>
-            </form:select>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="cpf" class="form-control" id="floatingInput"
-                        placeholder="111.111.111-11"/>
-            <label for="floatingInput">CPF</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <form:input type="text" path="telefone" class="form-control" id="floatingInput"
-                        placeholder="(11)99999-9999"/>
-            <label for="floatingInput">Telefone</label>
-        </div>
-
-        <div class="form-group">
-            <form:select path="estado" class="form-select" aria-label="Default select example">
-                <option selected>Estado</option>
-                <form:option value="AC" itemLabel="Acre"/>
-                <form:option value="AL" itemLabel="Alagoas"/>
-                <form:option value="AP" itemLabel="Amapá"/>
-                <form:option value="AM" itemLabel="Amazonas"/>
-                <form:option value="BA" itemLabel="Bahia"/>
-                <form:option value="CE" itemLabel="Ceará"/>
-                <form:option value="DF" itemLabel="Distrito Federal"/>
-                <form:option value="ES" itemLabel="Espírito Santo"/>
-                <form:option value="GO" itemLabel="Goiás"/>
-                <form:option value="MA" itemLabel="Maranhão"/>
-                <form:option value="MT" itemLabel="Mato Grosso"/>
-                <form:option value="MS" itemLabel="Mato Grosso do Sul"/>
-                <form:option value="MG" itemLabel="Minas Gerais"/>
-                <form:option value="PA" itemLabel="Pará"/>
-                <form:option value="PB" itemLabel="Paraíba"/>
-                <form:option value="PR" itemLabel="Paraná"/>
-                <form:option value="PE" itemLabel="Pernambuco"/>
-                <form:option value="PI" itemLabel="Piauí"/>
-                <form:option value="RJ" itemLabel="Rio de Janeiro"/>
-                <form:option value="RN" itemLabel="Rio Grande do Norte"/>
-                <form:option value="RS" itemLabel="Rio Grande do Sul"/>
-                <form:option value="RO" itemLabel="Rondônia"/>
-                <form:option value="RR" itemLabel="Roraima"/>
-                <form:option value="SC" itemLabel="Santa Catarina"/>
-                <form:option value="SP" itemLabel="São Paulo"/>
-                <form:option value="SE" itemLabel="Sergipe"/>
-                <form:option value="TO" itemLabel="Tocantins"/>
-                <form:option value="EX" itemLabel="Estrangeiro"/>
-            </form:select>
-        </div>
-
-        <div class="form-floating">
-            <form:textarea class="form-control" placeholder="Breve decrição" path="biografia" id="floatingTextarea2"
-                           style="height: 100px"/>
-            <label for="floatingTextarea2">Comments</label>
-        </div>
-
-        <hr>
-
-        <a class="btn btn-default btn-lg" href="${contextPath}/">Cancelar</a>
-        <button type="submit" class="btn btn-primary btn-lg">Gravar</button>
-
-        <br>
-        <br>
-    </form:form>
-
-</div>
-<!-- Bootstrap Core JavaScript -->
-<script src="${contextPath}/js/bootstrap.bundle.js"></script>
-</body>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="${contextPath}/js/bootstrap.bundle.js"></script>
+    </body>
 
 </html>
