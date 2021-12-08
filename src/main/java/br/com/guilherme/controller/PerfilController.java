@@ -1,6 +1,7 @@
 package br.com.guilherme.controller;
 
 import br.com.guilherme.model.UserModel;
+import br.com.guilherme.model.filtragem.ProcurarModel;
 import br.com.guilherme.repository.UserRepository;
 import br.com.guilherme.service.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -31,7 +34,7 @@ public class PerfilController {
     PerfilService perfilService;
 
     @GetMapping()
-    public String openPerfil(Model model, Authentication authentication) {
+    public String openPerfil(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model, Authentication authentication) {
 
         model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
 
@@ -47,14 +50,14 @@ public class PerfilController {
     }
 
     @PutMapping("/editar")
-    public String updatePerfil(@Valid UserModel userModel, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model, Authentication authentication) {
+    public String updatePerfil(@Valid UserModel userModel, @RequestParam("file") MultipartFile arquivo, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model, Authentication authentication) {
 
         if(bindingResult.hasErrors()) {
             //model.addAttribute("categorias", servicoRepository.findAll());
             return "editar-perfil";
         }
 
-        perfilService.update(userModel, authentication);
+        perfilService.update(userModel, authentication, arquivo);
 
         redirectAttributes.addFlashAttribute("messages", "Perfil alterado com sucesso!");
 
