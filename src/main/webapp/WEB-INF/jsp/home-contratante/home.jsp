@@ -70,7 +70,7 @@
                   <div class="row g-0">
                     <div class="col-md-4">
                         <c:set var="img" value="${usuario.nomeImagem}" scope="page"/>
-                      <img src="${contextPath}/imagens/helper${usuario.nomeImagem}" class="img-fluid rounded-start" alt="...">
+                      <img src="${contextPath}/imagens/${usuario.nomeImagem}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
