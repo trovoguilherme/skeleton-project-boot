@@ -62,7 +62,7 @@
             </div>
         </nav>
 
-        <form:form modelAttribute="userModel" action="${contextPath}/perfil/editar" method="put">
+        <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/perfil/editar" method="put">
 
             <spring:hasBindErrors name="userModel">
                 <div class="alert alert-danger" role="alert">
@@ -167,6 +167,11 @@
                     <form:errors path="biografia" />
                 </font><br />
 
+            </div>
+
+            <div>
+                <label for="formFileLg" class="form-label">Foto de perfil</label>
+                <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
             </div>
 
             <hr>
