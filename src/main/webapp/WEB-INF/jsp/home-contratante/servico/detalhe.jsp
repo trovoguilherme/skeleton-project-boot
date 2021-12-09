@@ -100,6 +100,10 @@
                     <label class="control-label" for="telefone">Criador:</label>
                     <label class="label label-default">${servico.emailContratante}</label>
                 </div>
+                <div class="form-group">
+                    <label class="control-label" for="valor">Valor:</label>
+                    <label class="label label-default">${servico.valor}</label>
+                </div>
                 <hr>
 
                 <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
