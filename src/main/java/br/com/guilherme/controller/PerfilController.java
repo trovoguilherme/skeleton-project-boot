@@ -1,7 +1,9 @@
 package br.com.guilherme.controller;
 
+import br.com.guilherme.model.ComentarioModel;
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.model.filtragem.ProcurarModel;
+import br.com.guilherme.repository.ComentarioRepository;
 import br.com.guilherme.repository.UserRepository;
 import br.com.guilherme.service.PerfilService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +33,16 @@ public class PerfilController {
     private UserRepository userRepository;
 
     @Autowired
+    private ComentarioRepository comentarioRepository;
+
+    @Autowired
     PerfilService perfilService;
 
     @GetMapping()
-    public String openPerfil(@ModelAttribute("procurarModel") ProcurarModel procurarModel, Model model, Authentication authentication) {
+    public String openPerfil(@ModelAttribute("procurarModel") ProcurarModel procurarModel, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel, Model model, Authentication authentication) {
 
         model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
+        model.addAttribute("comentarios", userRepository.findByEmail(authentication.getName()));
 
         return PERFIL_FOLDER + "perfil";
     }
