@@ -71,7 +71,7 @@
                   <div class="card-body">
                     <h5 class="card-title">${servico.titulo}</h5>
                     <p class="card-text">${servico.descricao}</p>
-                    <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado"" class="btn btn-primary">Detalhes</a>
+                    <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado" class="btn btn-primary">Detalhes</a>
                   </div>
                 </div>
                 <br>
