@@ -7,86 +7,65 @@
 <html>
 
 <head>
-
-    <title>Home</title>
-
-    <c:set value="${pageContext.request.contextPath}" var="contextPath" />
-    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
-    <meta charset="utf-8">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="${contextPath}/css-cadastrar-conta/theme.css" type="text/css">
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+          <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
+          <b> Sirvice<br></b>
+        </a>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"> <a class="nav-link" href="#">&nbsp;</a> </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/logout">logout</a></li>
+          <li class="nav-item" style=""><a href="${contextPath}/perfil"><img class="img-fluid rounded-circle d-block d-inline-flex" style="max-height: 50px; max-width: 50px;" src="${contextPath}/imagens/${usuario.nomeImagem}"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5" style="">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Serviços</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="${contextPath}/perfil">Perfil</a></li>
-                                <li><a class="dropdown-item" href="${contextPath}/checkout">Pagar</a></li>
-                                <li><a class="dropdown-item" href="${contextPath}/historico">Histórico de serviço</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="${contextPath}/logout">Sair</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar" method="post">
-                        <form:input class="form-control me-2" type="text" path="nome" id="nome"
-                            placeholder="Pesquisar por categoria" aria-label="Search" />
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form:form>
-                </div>
-            </div>
-        </nav>
-
-        <br>
-
-        <h3>Prestadores de Serviços</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="d-inline-flex active px-3" style=""><a href="${contextPath}/servico">Home</a></h3>
+          <h3 class="d-inline-flex px-3" style=""><a href="${contextPath}/historico">Serviços</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
 
         <c:forEach items="${usuarios}" var="usuario">
-            <a href="${contextPath}/servico/detalhe/${usuario.id}" style="text-decoration: none; color: black;">
-                <div class="card mb-3 d-inline-flex" style="max-width: 540px;">
-                  <div class="row g-0">
-                    <div class="col-md-4">
-                        <c:set var="img" value="${usuario.nomeImagem}" scope="page"/>
-                      <img src="${contextPath}/imagens/${usuario.nomeImagem}" class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                      <div class="card-body">
-                        <h5 class="card-title">${usuario.email}</h5>
-                        <p class="card-text">${usuario.biografia}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </a>
+          <div class="col-md-6 over the sky" style="">
+            <div class="card d-inline-flex w-100"> <img class="card-img-top rounded-circle mx-auto" src="${contextPath}/imagens/${usuario.nomeImagem}" alt="Card image cap" style="	max-width: 200px;" width="100px">
+              <div class="card-body" style="">
+                <h4 class="card-title"><b>${usuario.email}</b></h4>
+                <p class="card-text">${usuario.biografia}</p>
+                <a href="${contextPath}/servico/detalhe/${usuario.id}" class="btn px-3 mr-2 btn-primary">ver perfil<br></a>
+              </div>
+            </div>
+          </div>
         </c:forEach>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="${contextPath}/js/bootstrap.bundle.js"></script>
-
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
