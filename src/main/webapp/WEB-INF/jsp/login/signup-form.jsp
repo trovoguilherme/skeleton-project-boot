@@ -33,9 +33,9 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="${contextPath}/login">Log in</a></li>
-                <li class="nav-item"><a class="nav-link text-primary" href="${contextPath}/register">Registrar<br></a>
+                <li class="nav-item"><a class="nav-link text-primary" href="${contextPath}/registrar">Registrar<br></a>
                 </li>
-                <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/forgotpassword">Esqueci minha senha</a></li>
+                <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/esqueci/senha">Esqueci minha senha</a></li>
             </ul>
         </div>
     </div>
@@ -53,7 +53,7 @@
             <div class="col-md-7 p-4" style="">
                 <h3 class="mb-3">Formulário de cadastro</h3>
 
-                <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/process-register" method="post">
+                <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/registrar" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <form:input type="text" path="firstName" class="form-control" id="form36" placeholder="Nome" required="required"/>
@@ -155,7 +155,7 @@
                         <label for="formFileLg" class="form-label">Foto de perfil</label>
                         <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
                     </div>
-                    <button type="submit" class="btn btn-danger mt-2 mr-2">Cancelar<br></button>
+                    <a href="${contextPath}/" class="btn btn-danger mt-2 mr-2">Cancelar<br></a>
                     <button type="submit" class="btn btn-primary mt-2 mr-2">Cadastrar</button>
                 </form:form>
             </div>

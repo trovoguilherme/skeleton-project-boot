@@ -32,8 +32,8 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item"> <a class="nav-link" href="${contextPath}/login">Log in</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="${contextPath}/register" >Registrar<br></a> </li>
-          <li class="nav-item" style=""> <a class="nav-link text-primary" href="${contextPath}/forgotpassword">Esqueci minha senha</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="${contextPath}/registrar" >Registrar<br></a> </li>
+          <li class="nav-item" style=""> <a class="nav-link text-primary" href="${contextPath}/esqueci/senha">Esqueci minha senha</a> </li>
         </ul>
       </div>
     </div>
@@ -98,11 +98,11 @@
         <div class="p-4 col-md-4">
           <h2 class="mb-4">Cadastro</h2>
           <p><a class="nav-link" href="${contextPath}/login">Log-in</a><br>
-          <a class="nav-link text-primary" href="${contextPath}/register" >Registrar-se</a></p>
+          <a class="nav-link text-primary" href="${contextPath}/registrar" >Registrar-se</a></p>
         </div>
         <div class="p-4 col-md-4">
           <h2 class="mb-4">Outros</h2>
-          <ul class="list-unstyled"><a class="nav-link text-primary" href="${contextPath}/forgotpassword">esqueci minha senha</a></ul>
+          <ul class="list-unstyled"><a class="nav-link text-primary" href="${contextPath}/esqueci/senha">esqueci minha senha</a></ul>
         </div>
         <div class="p-4 col-md-4">
           <h2 class="mb-4">Contato</h2>

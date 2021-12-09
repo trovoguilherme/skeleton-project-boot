@@ -27,9 +27,9 @@
           <li class="nav-item"> <a class="nav-link" href="#">&nbsp;</a> </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="${contextPath}/register">Log in</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="${contextPath}/register">Registrar<br></a> </li>
-          <li class="nav-item" style=""> <a class="nav-link text-primary" href="${contextPath}/forgotpassword">Esqueci minha senha</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="${contextPath}/login">Log in</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="${contextPath}/registrar">Registrar<br></a> </li>
+          <li class="nav-item" style=""> <a class="nav-link text-primary" href="${contextPath}/esqueci/senha">Esqueci minha senha</a> </li>
         </ul>
       </div>
     </div>
