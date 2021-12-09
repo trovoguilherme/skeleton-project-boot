@@ -74,8 +74,13 @@
           <div class="modal-body">
             <form:form modelAttribute="rankModel" action="${contextPath}/rank/${id}" method="post">
               <div class="mb-3">
-                <label for="message-text" class="col-form-label">Nota:</label>
-                <form:input type="number" class="form-control" path="voto" id="message-text"/>
+                <form:select path="voto" class="form-select" aria-label="Default select example" style="	min-height: 35px;	min-width: 275px;">
+                    <h3>Avalie o prestador com uma nota</h3>
+                    <form:option value="1" itemlabel="1"/>
+                    <form:option value="2" itemlabel="2"/>
+                    <form:option value="3" itemlabel="4"/>
+                    <form:option value="5" itemlabel="5"/>
+                </form:select>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
