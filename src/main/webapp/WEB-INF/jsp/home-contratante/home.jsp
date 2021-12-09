@@ -38,7 +38,7 @@
       <div class="row">
         <div class="col-md-12">
           <h3 class="d-inline-flex active px-3" style=""><a href="${contextPath}/servico">Home</a></h3>
-          <h3 class="d-inline-flex px-3" style=""><a href="${contextPath}/historico">Serviços</a></h3>
+          <h3 class="d-inline-flex px-3" style=""><a href="${contextPath}/historico/aberto">Serviços</a></h3>
         </div>
       </div>
     </div>
