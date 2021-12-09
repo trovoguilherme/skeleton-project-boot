@@ -65,7 +65,7 @@
             </div>
         </nav>
 
-        <img src="${contextPath}/imagens/helper${usuario.nomeImagem}" alt="...">
+        <img src="${contextPath}/imagens/${usuario.nomeImagem}" alt="...">
 
         <div class="row">
             <div class="col-lg-12">
