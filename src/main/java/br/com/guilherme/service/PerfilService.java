@@ -26,6 +26,8 @@ public class PerfilService {
         String encodedPassword = passwordEncoder.encode(userModel.getPassword());
         userModel.setPassword(encodedPassword);
 
+        UserModel findUser = userRepository.findByEmail(authentication.getName());
+
         try {
             if (!arquivo.isEmpty()) {
                 byte[] bytes = arquivo.getBytes();
@@ -33,12 +35,13 @@ public class PerfilService {
                 Files.write(caminho, bytes);
 
                 userModel.setNomeImagem(arquivo.getOriginalFilename());
+            } else {
+                userModel.setNomeImagem(findUser.getNomeImagem());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        UserModel findUser = userRepository.findByEmail(authentication.getName());
 
         findUser.setEmail(userModel.getEmail());
         findUser.setPassword(userModel.getPassword());
