@@ -102,7 +102,8 @@
                   </div>
                 </div>
               </div>
-          </div><a href="#" class="btn px-3 mr-2 btn-danger">Cancelar<br></a>
+          </div>
+          <a href="${contextPath}/historico/aberto" class="btn px-3 mr-2 btn-danger">Cancelar<br></a>
           <button type="submit" class="btn px-3 mr-2 btn-primary">Atualizar<br></button>
           </form:form>
         </div>
