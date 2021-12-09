@@ -44,6 +44,7 @@ public class PerfilController {
     @GetMapping("/editar")
     public String openEditarPerfil(@ModelAttribute("userModel") UserModel userModel, Authentication authentication, Model model) {
 
+        model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
         model.addAttribute("userModel", userRepository.findByEmail(authentication.getName()));
 
         return PERFIL_FOLDER + "editar-perfil";

@@ -1,192 +1,250 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 
 <!DOCTYPE html>
 <html>
 
 <head>
-
-    <title>Editar Serviço</title>
-
-    <c:set value="${pageContext.request.contextPath}" var="contextPath" />
-
-    <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
     <meta charset="utf-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+          type="text/css">
+    <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.3.1.css">
 </head>
 
 <body>
+<nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"
-                                href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled">Disabled</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+        <button class="navbar-toggler navbar-toggler-right border-0" type="button"
+                data-toggle="collapse" data-target="#navbar6" style="">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block" href="${contextPath}/servico">
+            <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
+            <b> Sirvice<br></b>
+        </a>
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#">&nbsp;</a></li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/logout">logout</a></li>
+                <li class="nav-item" style=""><a href="${contextPath}/"><img class="img-fluid rounded-circle d-block d-inline-flex" style="max-height: 50px; max-width: 50px;" src="${contextPath}/imagens/${usuario.nomeImagem}"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="py-5" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="d-inline-flex px-3" style=""><a href="${contextPath}/">Serviços ativos</a></h3>
+                <h3 class="d-inline-flex px-3"><a href="${contextPath}/">Serviços novos</a></h3>
+                <h3 class="d-inline-flex px-3 text-primary"><a href="${contextPath}/">Histórico</a></h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-3" style="">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 p-4">
+                <h3 class="text-center">Perfil</h3>
+                <div class="col-md-12" style="">
+                    <img class="d-block rounded-circle mx-auto" src="${contextPath}/imagens/${usuario.nomeImagem}" style="max-height: 250px;	max-width: 250px;	min-width: 250px;	min-height: 250px;">
+                    <div class="text-center" style="form-group">
+                        <img class="d-block mx-auto d-inline-flex"src="${contextPath}/imagens/notaPerfil.png" style="max-height: 25px; max-width: 25px;">
+                        <img class="d-block mx-auto d-inline-flex" src="${contextPath}/imagens/notaPerfil.png" style="max-height: 25px; max-width: 25px;">
+                        <img class="d-block mx-auto d-inline-flex" src="${contextPath}/imagens/notaPerfil.png" style="max-height: 25px; max-width: 25px;">
+                        <img class="d-block mx-auto d-inline-flex" src="${contextPath}/imagens/notaPerfil.png" style="max-height: 25px; max-width: 25px;">
+                        <img class="d-block mx-auto d-inline-flex" src="${contextPath}/imagens/notaPerfil.png" style="max-height: 25px; max-width: 25px;">
+                    </div>
+            <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/perfil/editar" method="put">
+                    <div class="form-group">
+                        <form:textarea class="form-control mt-3" path="biografia" id="form43" rows="3" placeholder="Uma breve descrição sua"/>
+                    </div>
                 </div>
             </div>
-        </nav>
+            <div class="col-md-7 p-4" style="">
 
-        <form:form modelAttribute="userModel" enctype="multipart/form-data" action="${contextPath}/perfil/editar" method="put">
 
-            <spring:hasBindErrors name="userModel">
-                <div class="alert alert-danger" role="alert">
-                    <form:errors path="*" class="has-error" />
-                </div>
-            </spring:hasBindErrors>
+                    <div class="form-row">
 
-            <div class="form-group">
-                <label class="control-label" for="titulo">Email:</label>
-                <form:input type="text" path="email" id="titulo" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="email" />
-                </font><br />
-            </div>
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="firstName" class="form-control" id="form36" placeholder="Nome"/>
+                        </div>
 
-            <div class="form-group">
-                <label class="control-label" for="titulo">Senha:</label>
-                <form:input type="password" path="password" id="titulo" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="password" />
-                </font><br />
-            </div>
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="lastName" class="form-control" id="form37" placeholder="Sobrenome"/>
+                        </div>
 
-            <div class="form-group">
-                <label class="control-label" for="categoria">Nome:</label>
-                <form:input type="text" path="firstName" id="categoria" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="firstName" />
-                </font><br />
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="categoria">Sobrenome:</label>
-                <form:input type="text" path="lastName" id="categoria" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="lastName" />
-                </font><br />
-            </div>
-
-            <div class="form-group">
-                <form:select path="tipoDaConta" class="form-select" aria-label="Default select example">
-                    <option selected>Tipo da conta</option>
-                    <form:option value="contratante" itemLabel="contratante" />
-                    <form:option value="prestador" itemLabel="prestador" />
-                </form:select>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="cpf">CPF:</label>
-                <form:input type="text" path="cpf" id="cpf" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="cpf" />
-                </font><br />
-            </div>
-
-            <div class="form-group">
-                <label class="control-label" for="telefone">Telefone:</label>
-                <form:input type="text" path="telefone" id="telefone" class="form-control" maxlength="50" size="50" />
-                <font color="red">
-                    <form:errors path="telefone" />
-                </font><br />
-            </div>
-
-            <div class="form-group">
-                        <form:select path="estado" class="form-select" aria-label="Default select example">
-                            <option selected>Estado</option>
-                            <form:option value="AC" itemLabel="Acre"/>
-                            <form:option value="AL" itemLabel="Alagoas"/>
-                            <form:option value="AP" itemLabel="Amapá"/>
-                            <form:option value="AM" itemLabel="Amazonas"/>
-                            <form:option value="BA" itemLabel="Bahia"/>
-                            <form:option value="CE" itemLabel="Ceará"/>
-                            <form:option value="DF" itemLabel="Distrito Federal"/>
-                            <form:option value="ES" itemLabel="Espírito Santo"/>
-                            <form:option value="GO" itemLabel="Goiás"/>
-                            <form:option value="MA" itemLabel="Maranhão"/>
-                            <form:option value="MT" itemLabel="Mato Grosso"/>
-                            <form:option value="MS" itemLabel="Mato Grosso do Sul"/>
-                            <form:option value="MG" itemLabel="Minas Gerais"/>
-                            <form:option value="PA" itemLabel="Pará"/>
-                            <form:option value="PB" itemLabel="Paraíba"/>
-                            <form:option value="PR" itemLabel="Paraná"/>
-                            <form:option value="PE" itemLabel="Pernambuco"/>
-                            <form:option value="PI" itemLabel="Piauí"/>
-                            <form:option value="RJ" itemLabel="Rio de Janeiro"/>
-                            <form:option value="RN" itemLabel="Rio Grande do Norte"/>
-                            <form:option value="RS" itemLabel="Rio Grande do Sul"/>
-                            <form:option value="RO" itemLabel="Rondônia"/>
-                            <form:option value="RR" itemLabel="Roraima"/>
-                            <form:option value="SC" itemLabel="Santa Catarina"/>
-                            <form:option value="SP" itemLabel="São Paulo"/>
-                            <form:option value="SE" itemLabel="Sergipe"/>
-                            <form:option value="TO" itemLabel="Tocantins"/>
-                            <form:option value="EX" itemLabel="Estrangeiro"/>
-                        </form:select>
                     </div>
 
-            <div class="form-group">
-                <label class="control-label" for="biografia">Biográfia:</label>
-                <form:textarea id="biografia" class="form-control" path="biografia" rows="4" cols="100" />
-                <font color="red">
-                    <form:errors path="biografia" />
-                </font><br />
+                    <div class="form-group">
+                        <form:input type="email" path="email" class="form-control" id="form38" placeholder="E-mail"/>
+                    </div>
+
+                    <div class="form-group">
+                        <form:input type="password" path="password" class="form-control" id="form39" placeholder="Senha"/>
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <h5 class="text-center">${usuario.cpf}</h5>
+                            <form:input type="hidden" path="cpf" value="${usuario.cpf}"/>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <h5 class="text-center"><b>${usuario.tipoDaConta}</b></h5>
+                            <form:input type="hidden" path="tipoDaConta" value="${usuario.tipoDaConta}"/>
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <form:input type="text" path="telefone" class="form-control" id="form40" placeholder="Telefone"/>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <form:select path="estado" class="form-form:select" aria-label="Default form:select example" style="	min-height: 35px;	min-width: 275px;">
+                                    <option selected>Estado</option>
+                                    <form:option value="AC" itemlabel="Acre"/>
+
+                                    <form:option value="AL" itemlabel="Alagoas"/>
+
+                                    <form:option value="AP" itemlabel="Amap�"/>
+
+                                    <form:option value="AM" itemlabel="Amazonas"/>
+
+                                    <form:option value="BA" itemlabel="Bahia"/>
+
+                                    <form:option value="CE" itemlabel="Cear�"/>
+
+                                    <form:option value="DF" itemlabel="Distrito Federal"/>
+
+                                    <form:option value="ES" itemlabel="Esp�rito Santo"/>
+
+                                    <form:option value="GO" itemlabel="Goi�s"/>
+
+                                    <form:option value="MA" itemlabel="Maranh�o"/>
+
+                                    <form:option value="MT" itemlabel="Mato Grosso"/>
+
+                                    <form:option value="MS" itemlabel="Mato Grosso do Sul"/>
+
+                                    <form:option value="MG" itemlabel="Minas Gerais"/>
+
+                                    <form:option value="PA" itemlabel="Par�"/>
+
+                                    <form:option value="PB" itemlabel="Para�ba"/>
+
+                                    <form:option value="PR" itemlabel="Paran�"/>
+
+                                    <form:option value="PE" itemlabel="Pernambuco"/>
+
+                                    <form:option value="PI" itemlabel="Piau�"/>
+
+                                    <form:option value="RJ" itemlabel="Rio de Janeiro"/>
+
+                                    <form:option value="RN" itemlabel="Rio Grande do Norte"/>
+
+                                    <form:option value="RS" itemlabel="Rio Grande do Sul"/>
+
+                                    <form:option value="RO" itemlabel="Rond�nia"/>
+
+                                    <form:option value="RR" itemlabel="Roraima"/>
+
+                                    <form:option value="SC" itemlabel="Santa Catarina"/>
+
+                                    <form:option value="SP" itemlabel="S�o Paulo"/>
+
+                                    <form:option value="SE" itemlabel="Sergipe"/>
+
+                                    <form:option value="TO" itemlabel="Tocantins"/>
+
+                                    <form:option value="EX" itemlabel="Estrangeiro"/>
+
+                                </form:select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="formFileLg" class="form-label">Foto de perfil</label>
+                        <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
+                    </div>
+
+                    <a class="btn btn-danger mt-2 mr-2" href="${contextPath}/servico">Cancelar<br></a>
+                    <button type="submit" class="btn btn-primary mt-2 mr-2" href="${contextPath}/">Atualizar</button>
+                    <a type="submit" class="btn mt-2 mr-2 btn-warning" href="${contextPath}/">contatar</a>
+
+                </form:form>
+
 
             </div>
-
-            <div>
-                <label for="formFileLg" class="form-label">Foto de perfil</label>
-                <input class="form-control form-control-lg" id="formFileLg" type="file" name="file">
-            </div>
-
-            <hr>
-
-            <a class="btn btn-default btn-lg" href="${contextPath}/servico">Cancelar</a>
-            <button type="submit" class="btn btn-primary btn-lg">Gravar</button>
-
-            <br>
-            <br>
-        </form:form>
+        </div>
     </div>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="${contextPath}/js/bootstrap.bundle.js"></script>
-
+</div>
+<div class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center my-3"><b>Comentários</b></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="p-4 col-md-6">
+                <img class="img-fluid d-block d-inline-flex" src="${contextPath}/">
+                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
+                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
+                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
+                    existence in this spot.<br></p>
+                <h5 class="text-right">data</h5>
+            </div>
+            <div class="p-4 col-md-6">
+                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
+                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
+                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
+                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
+                    existence in this spot.<br></p>
+                <h5 class="text-right">12/09/2022</h5>
+            </div>
+            <div class="p-4 col-md-6">
+                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
+                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
+                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
+                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
+                    existence in this spot.<br></p>
+                <h5 class="text-right">12/09/2022</h5>
+            </div>
+            <div class="p-4 col-md-6">
+                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
+                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
+                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
+                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
+                    existence in this spot.<br></p>
+                <h5 class="text-right">12/09/2022</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<pingendo onclick="window.open('https://pingendo.com/', '_blank')"
+          style="cursor:pointer;position: fixed;bottom: 20px;right:20px;padding:4px;background-color: #00b0eb;border-radius: 8px; width:220px;display:flex;flex-direction:row;align-items:center;justify-content:center;font-size:14px;color:white">
+    Made with Pingendo Free&nbsp;&nbsp;<img src="https://pingendo.com/site-assets/Pingendo_logo_big.png" class="d-block"
+                                            alt="Pingendo logo" height="16"></pingendo>
 </body>
 
 </html>
