@@ -144,7 +144,7 @@
 
       <div class="row">
         <div class="col-md-12">
-          <h3 class="text-center my-3" contenteditable="true"><b>Comentários</b></h3>
+          <h3 class="text-center my-3"><b>Comentários</b></h3>
         </div>
       </div>
       <div class="row">

@@ -72,19 +72,22 @@
     <div class="container">
       <div class="row">
         <c:forEach items="${servicosPorStatus}" var="servico">
-          <div class="col-md-6 over the sky" style="">
-            <div class="card d-inline-flex w-100">
-              <div class="card-body" style="">
-                <h4 class="card-title">${servico.titulo}</h4>
-                <b>
-                  <p class="card-text">${servico.emailPrestador}</p>
-                </b>
-                <p class="card-text">${servico.descricao}</p>
-                <h5 style="	text-shadow: 1px 1px 2px black;">${servico.valor}0</h5>
-                <h5 style="	text-shadow: 1px 1px 2px black;" class="text-primary">${servico.categoria}</h5>
-              </div>
-            </div>
-          </div>
+
+                  <div class="col-md-6 over the sky" style="">
+                    <div class="card d-inline-flex w-100">
+                      <div class="card-body" style="">
+                        <h4 class="card-title">${servico.titulo}</h4>
+                        <b>
+                          <p class="card-text">${servico.emailPrestador}</p>
+                        </b>
+                        <p class="card-text">${servico.descricao}</p>
+                        <h5 style="	text-shadow: 1px 1px 2px black;">${servico.valor}</h5>
+                        <h5 style="	text-shadow: 1px 1px 2px black;" class="text-primary">${servico.categoria}</h5>
+                        <a class="btn btn-warning" href="${contextPath}/historico/servico/detalhe/${servico.id}">Detalhes</a>
+                      </div>
+                    </div>
+                  </div>
+
       </c:forEach>
 
       </div>

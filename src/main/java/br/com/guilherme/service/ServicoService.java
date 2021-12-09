@@ -47,4 +47,16 @@ public class ServicoService {
         servicoRepository.save(novoServico);
     }
 
+    public void atualizar(long id, ServicoModel servicoModel, Authentication authentication) {
+        ServicoModel findServico = servicoRepository.findById(id).get();
+
+        servicoModel.setId(id);
+        servicoModel.setIdaux(findServico.getIdaux());
+        servicoModel.setEmailPrestador(findServico.getEmailPrestador());
+        servicoModel.setEmailContratante(findServico.getEmailContratante());
+        servicoModel.setUsuarioServico(findServico.getUsuarioServico());
+
+        servicoRepository.save(servicoModel);
+    }
+
 }

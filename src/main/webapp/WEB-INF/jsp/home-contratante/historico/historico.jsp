@@ -15,6 +15,7 @@
 </head>
 
 <body>
+
   <nav class="navbar navbar-expand-md navbar-light">
     <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6" style="">
         <span class="navbar-toggler-icon"></span>
@@ -82,6 +83,7 @@
                 <p class="card-text">${servico.descricao}</p>
                 <h5 style="	text-shadow: 1px 1px 2px black;">${servico.valor}0</h5>
                 <h5 style="	text-shadow: 1px 1px 2px black;" class="text-primary">${servico.categoria}</h5>
+                <a class="btn btn-warning" href="${contextPath}/historico/servico/detalhe/${servico.id}">Detalhes</a>
               </div>
             </div>
           </div>

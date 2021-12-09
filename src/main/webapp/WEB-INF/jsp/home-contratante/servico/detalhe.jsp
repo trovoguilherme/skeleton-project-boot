@@ -13,64 +13,47 @@
     <c:set value="${pageContext.request.contextPath}" var="contextPath"/>
 
     <link href="${contextPath}/css/bootstrap.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="${contextPath}/css-cadastrar-conta/theme.css" type="text/css">
 
 </head>
 
 <body>
-<div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="${contextPath}/servico">Serviços</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           href="${contextPath}/servico/form?page=servico-novo">Cadastrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="${contextPath}/perfil/editar">Editar</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form:form class="d-flex" modelAttribute="procurarModel" action="${contextPath}/servico/procurar"
-                           method="post">
-                    <form:input class="form-control me-2" type="text" path="nome" id="nome" placeholder="Search"
-                                aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form:form>
-            </div>
-        </div>
-    </nav>
 
+<nav class="navbar navbar-expand-md navbar-light">
+    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6" style="">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+          <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
+          <b> Sirvice<br></b>
+        </a>
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"> <a class="nav-link" href="#">&nbsp;</a> </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/logout">logout</a></li>
+          <li class="nav-item" style=""><a href="${contextPath}/perfil"><img class="img-fluid rounded-circle d-block d-inline-flex" style="max-height: 50px; max-width: 50px;" src="${contextPath}/imagens/${usuario.nomeImagem}"></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="py-5" style="">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="d-inline-flex active px-3" style=""><a href="${contextPath}/servico">Home</a></h3>
+          <h3 class="d-inline-flex px-3" style=""><a href="${contextPath}/historico/aberto">Serviços</a></h3>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <div class="row">
         <div class="col-lg-12">
             <div class="well">
 
                 <h2>Serviço</h2>
-
+                <c:set var="status" value="${servico.status}" scope="page"/>
                 <div class="form-group">
                     <label class="control-label" for="descricao">Título:</label>
                     <label class="label label-default">${servico.titulo}</label>
@@ -107,7 +90,9 @@
                 <hr>
 
                 <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
-
+                <c:if test="${status != 'finalizado'}">
+                    <a class="btn btn-default btn-lg" href="${contextPath}/historico/servico/editar/${servico.id}">Editar</a>
+                </c:if>
                 <br>
                 <br>
 
