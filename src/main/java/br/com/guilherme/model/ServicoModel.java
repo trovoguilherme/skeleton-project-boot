@@ -41,6 +41,10 @@ public class ServicoModel {
     @NotNull(message = "Status obrigatório")
     private String status;
 
+    @Column(name = "VALOR")
+    @NotNull(message = "Status obrigatório")
+    private double valor;
+
     @ManyToOne
     @JoinColumn(name = "ID_CONTRATANTE")
     private UserModel usuarioServico;

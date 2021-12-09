@@ -111,6 +111,11 @@
                     <form:errors path="descricao" />
                 </font><br />
             </div>
+            <div class="form-group">
+                <label class="control-label" for="categoria">Valor:</label>
+                <form:input type="number" path="valor" id="categoria" class="form-control"/>
+                <font color="red"><form:errors path="valor"/></font><br />
+            </div>
             <hr>
 
             <a class="btn btn-default btn-lg" href="${contextPath}/servico">Cancelar</a>

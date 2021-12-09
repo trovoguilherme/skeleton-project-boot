@@ -40,6 +40,7 @@ public class ServicoService {
         novoServico.setDescricao(servicoModel.getDescricao());
         novoServico.setUsuarioServico(servicoModel.getUsuarioServico());
         novoServico.setIdaux(servicoModel.getIdaux());
+        novoServico.setValor(servicoModel.getValor());
         novoServico.setEmailContratante(servicoModel.getEmailContratante());
         novoServico.setEmailPrestador(servicoModel.getEmailPrestador());
 
