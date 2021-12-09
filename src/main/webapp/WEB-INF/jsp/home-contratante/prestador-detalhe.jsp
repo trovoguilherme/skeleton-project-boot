@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="profile-comments__body">
                                         <h5 class="profile-comments__sender">
-                                            ${comentario.nome} <small>2 horas atrás</small>
+                                            ${comentario.nome} <small>${comentario.dataDoComentario}</small>
                                         </h5>
                                         <div class="profile-comments__content">
                                             ${comentario.mensagem}

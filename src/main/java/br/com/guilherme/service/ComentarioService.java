@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Service
 public class ComentarioService {
 
@@ -22,6 +25,9 @@ public class ComentarioService {
         comentarioModel.setNome(userRepository.findByEmail(authentication.getName()).getEmail());
         comentarioModel.setUsuario(userRepository.findByEmail(authentication.getName()));
         comentarioModel.setIdaux(user.getId());
+        Date dataAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(dataAtual);
+        comentarioModel.setDataDoComentario(data);
 
         comentarioRepository.save(comentarioModel);
     }

@@ -35,4 +35,7 @@ public class ComentarioModel {
     @JoinColumn(name = "ID_USUARIO")
     private UserModel usuario;
 
+    @Column(name = "data")
+    private String dataDoComentario;
+
 }
