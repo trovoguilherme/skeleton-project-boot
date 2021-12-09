@@ -23,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block" href="${contextPath}/">
-            <img class="img-fluid d-block d-inline-flex w-25" src="C:/Users/ahala/Downloads/logo_b_small.png">
+            <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_log.png">
             <b> Sirvice<br></b>
         </a>
             <ul class="navbar-nav mx-auto">
@@ -48,17 +48,15 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <form:form modelattribute="userModel" action="${contextPath}/esqueci/senha" method="post" class="py-4"
+                <form:form modelAttribute="userModel" action="${contextPath}/esqueci/senha" method="post" class="py-4"
                            style="">
                     <div class="form-floating mb-3 py-0" style="">
                         <label for="floatingInput" class="text-body">Email</label>
-                        <form:input type="email" path="email" class="form-control text-body" id="floatingInput"
-                                    placeholder="nome@exemplo.com.br" style="" required="required"/>
+                        <form:input type="email" path="email" class="form-control text-body" id="floatingInput" placeholder="nome@exemplo.com.br" style="" required="required"/>
                     </div>
                     <div class="form-floating mb-3">
-                        <div class="form-group"><label contenteditable="true">Senha<br></label>
-                            <form:input type="password" path="email" class="form-control text-body" id="floatingInput"
-                                        placeholder="Digite sua nova senha" style="" required="required"/>
+                        <div class="form-group"><label>Senha<br></label>
+                            <form:input type="password" path="password" class="form-control text-body" id="floatingInput" placeholder="Digite sua nova senha" style="" required="required"/>
                         </div>
                     </div>
                     <a class="btn btn-default btn-lg btn-danger" href="${contextPath}/">Voltar</a>
