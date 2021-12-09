@@ -130,7 +130,7 @@
                                         <a href="#"><i class="fa fa-trash-o"></i></a>
                                     </div>
                                     <div class="profile-comments__avatar">
-                                        <img src="${contextPath}/imagens/helper${imagemDoComentario}" alt="...">
+                                        <img src="${contextPath}/imagens/${imagemDoComentario}" alt="...">
                                     </div>
                                     <div class="profile-comments__body">
                                         <h5 class="profile-comments__sender">
