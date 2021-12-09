@@ -63,15 +63,12 @@ public class HistoricoController {
 
         String status = servicoService.atualizar(id, servicoModel, authentication);
         String page = "";
-        //if (status.equalsIgnoreCase("finalizado")) {
-            //model.addAttribute("id", id);
-            //page = "home-contratante/historico/finalizado-sucesso";
-       // } else {
-            UserModel user = userRepository.findByEmail(authentication.getName());
-            model.addAttribute("usuario", user);
-            model.addAttribute("servico", servicoRepository.findById(id).get());
-            page = "redirect:/historico";
-        //}
+
+        UserModel user = userRepository.findByEmail(authentication.getName());
+        model.addAttribute("usuario", user);
+        model.addAttribute("servico", servicoRepository.findById(id).get());
+        page = "redirect:/historico";
+
          return page;
     }
 
