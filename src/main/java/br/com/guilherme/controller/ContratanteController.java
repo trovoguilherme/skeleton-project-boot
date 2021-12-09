@@ -72,6 +72,7 @@ public class ContratanteController {
 
         UserModel findUser = userRepository.findByEmail(authentication.getName());
 
+        model.addAttribute("usuario", findUser);
         model.addAttribute("usuarios", userRepository.findUsersWithoutMeAndOnlyPrestador(authentication.getName()));
         model.addAttribute("servicos", servicoRepository.findServicosById(findUser.getId()));
         return page;
