@@ -23,7 +23,7 @@
     <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+      <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="${contextPath}/">
           <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png" >
           <b> Sirvice<br></b>
         </a>
