@@ -52,8 +52,10 @@
         <div class="col-lg-12">
             <div class="well">
 
+
                 <h2>Serviço</h2>
                 <c:set var="status" value="${servico.status}" scope="page"/>
+                <c:set var="conta" value="${usuario.tipoDaConta}" scope="page"/>
                 <div class="form-group">
                     <label class="control-label" for="descricao">Título:</label>
                     <label class="label label-default">${servico.titulo}</label>
@@ -89,12 +91,23 @@
                 </div>
                 <hr>
 
-                <a class="btn btn-default btn-lg" href="${contextPath}/historico/aberto">Voltar</a>
+                <c:if test="${conta == 'contratante'}">
+                    <a class="btn btn-default btn-lg" href="${contextPath}/historico/aberto">Voltar</a>
+                </c:if>
+
+                <c:if test="${conta == 'prestador'}">
+                    <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
+                </c:if>
+
                 <c:if test="${status != 'finalizado'}">
                     <a class="btn btn-default btn-lg" href="${contextPath}/historico/servico/editar/${servico.id}">Editar</a>
                 </c:if>
                 <br>
                 <br>
+
+                <div class="btn-group">
+                    <a href="${contextPath}/rank/concluido/${servico.idaux}" class="btn btn-primary active" aria-current="page">Concluído?</a>
+                </div>
 
             </div>
         </div>

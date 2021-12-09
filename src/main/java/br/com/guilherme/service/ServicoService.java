@@ -47,7 +47,7 @@ public class ServicoService {
         servicoRepository.save(novoServico);
     }
 
-    public void atualizar(long id, ServicoModel servicoModel, Authentication authentication) {
+    public String atualizar(long id, ServicoModel servicoModel, Authentication authentication) {
         ServicoModel findServico = servicoRepository.findById(id).get();
 
         servicoModel.setId(id);
@@ -57,6 +57,7 @@ public class ServicoService {
         servicoModel.setUsuarioServico(findServico.getUsuarioServico());
 
         servicoRepository.save(servicoModel);
+        return servicoModel.getStatus();
     }
 
 }

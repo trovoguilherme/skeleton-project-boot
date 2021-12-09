@@ -31,6 +31,8 @@ public class HistoricoController {
     @Autowired
     private ServicoService servicoService;
 
+    private RankController rankController;
+
     @GetMapping()
     public String open(Model model, Authentication authentication) {
         UserModel user = userRepository.findByEmail(authentication.getName());
@@ -59,12 +61,18 @@ public class HistoricoController {
     @PutMapping("/{id}")
     public String update(ServicoModel servicoModel, @PathVariable("id") long id, Model model, Authentication authentication) {
 
-        servicoService.atualizar(id, servicoModel, authentication);
-
-        UserModel user = userRepository.findByEmail(authentication.getName());
-        model.addAttribute("usuario", user);
-        model.addAttribute("servico", servicoRepository.findById(id).get());
-        return "redirect:/historico";
+        String status = servicoService.atualizar(id, servicoModel, authentication);
+        String page = "";
+        //if (status.equalsIgnoreCase("finalizado")) {
+            //model.addAttribute("id", id);
+            //page = "home-contratante/historico/finalizado-sucesso";
+       // } else {
+            UserModel user = userRepository.findByEmail(authentication.getName());
+            model.addAttribute("usuario", user);
+            model.addAttribute("servico", servicoRepository.findById(id).get());
+            page = "redirect:/historico";
+        //}
+         return page;
     }
 
     @GetMapping("/{status}")

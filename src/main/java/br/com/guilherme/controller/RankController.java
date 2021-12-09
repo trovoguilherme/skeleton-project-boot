@@ -1,9 +1,11 @@
 package br.com.guilherme.controller;
 
 import br.com.guilherme.model.RankModel;
+import br.com.guilherme.model.ServicoModel;
 import br.com.guilherme.model.UserModel;
 import br.com.guilherme.model.filtragem.ProcurarModel;
 import br.com.guilherme.repository.RankRepository;
+import br.com.guilherme.repository.ServicoRepository;
 import br.com.guilherme.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -23,11 +25,19 @@ public class RankController {
     private UserRepository userRepository;
     @Autowired
     private RankRepository rankRepository;
+    @Autowired
+    private ServicoRepository servicoRepository;
 
     @GetMapping("/{id}")
     public String openRank(@PathVariable("id") long id, @ModelAttribute("rankModel") RankModel rankModel, Model model) {
         model.addAttribute("id", id);
          return "home-contratante/rank/rank";
+    }
+
+    @GetMapping("/concluido/{id}")
+    public String openConcluidoRank(@PathVariable("id") long id, @ModelAttribute("rankModel") RankModel rankModel, Model model) {
+        model.addAttribute("id", id);
+        return "home-contratante/rank/rank";
     }
 
     @PostMapping("/{id}")

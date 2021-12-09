@@ -75,6 +75,11 @@ public class ContratanteController {
         model.addAttribute("usuario", findUser);
         model.addAttribute("usuarios", userRepository.findUsersWithoutMeAndOnlyPrestador(authentication.getName()));
         model.addAttribute("servicos", servicoRepository.findServicosById(findUser.getId()));
+        if (servicoRepository.findServicosById(findUser.getId()).isEmpty()) {
+            model.addAttribute("aux", "naoTem");
+        } else {
+            model.addAttribute("aux", "tem");
+        }
         return page;
     }
 

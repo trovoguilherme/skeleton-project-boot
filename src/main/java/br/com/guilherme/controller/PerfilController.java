@@ -40,9 +40,9 @@ public class PerfilController {
 
     @GetMapping()
     public String openPerfil(@ModelAttribute("procurarModel") ProcurarModel procurarModel, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel, Model model, Authentication authentication) {
-
+        UserModel findUser = userRepository.findByEmail(authentication.getName());
         model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
-        model.addAttribute("comentarios", userRepository.findByEmail(authentication.getName()));
+        model.addAttribute("comentarios", comentarioRepository.findComentariosById(findUser.getId()));
 
         return PERFIL_FOLDER + "perfil";
     }
@@ -52,6 +52,7 @@ public class PerfilController {
 
         model.addAttribute("usuario", userRepository.findByEmail(authentication.getName()));
         model.addAttribute("userModel", userRepository.findByEmail(authentication.getName()));
+
 
         return PERFIL_FOLDER + "editar-perfil";
     }

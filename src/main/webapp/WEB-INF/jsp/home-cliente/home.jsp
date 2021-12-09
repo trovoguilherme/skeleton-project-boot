@@ -62,17 +62,24 @@
     <br>
         <br>
         <br>
-        <c:forEach items="${servicos}" var="servico">
-        <div class="card border-success">
-          <h5 class="card-header border-success">${servico.status}</h5>
-          <div class="card-body">
-            <h5 class="card-title">${servico.titulo}</h5>
-            <p class="card-text">${servico.descricao}</p>
-            <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado"" class="btn btn-primary">Detalhes</a>
-          </div>
-        </div>
-        <br>
-        </c:forEach>
+        <c:set var="auxServico" value="${aux}" scope="page"/>
+
+        <c:if test="${auxServico == 'tem'}">
+            <c:forEach items="${servicos}" var="servico">
+                <div class="card border-success">
+                  <h5 class="card-header border-success">${servico.status}</h5>
+                  <div class="card-body">
+                    <h5 class="card-title">${servico.titulo}</h5>
+                    <p class="card-text">${servico.descricao}</p>
+                    <a href="${contextPath}/servico/detalhe/${servico.id}/cadastrado"" class="btn btn-primary">Detalhes</a>
+                  </div>
+                </div>
+                <br>
+            </c:forEach>
+        </c:if>
+        <c:if test="${auxServico == 'naoTem'}">
+            <h1>Você ainda não tem serviços ativos</h1>
+        </c:if>
     </div>
 
 

@@ -21,6 +21,9 @@ public interface ServicoRepository extends JpaRepository<ServicoModel, Long> {
     @Query("DELETE ServicoModel WHERE id = ?1")
     void deleteById(long id);
 
+    @Query("SELECT s from ServicoModel s WHERE s.idaux = ?1 AND s.id = ?2")
+    ServicoModel findSThisServiceById(long idaux, long id);
+
     @Query("SELECT s from ServicoModel s WHERE s.idaux = ?1")
     List<ServicoModel> findServicosById(long id);
 
