@@ -89,7 +89,7 @@
                 </div>
                 <hr>
 
-                <a class="btn btn-default btn-lg" href="${contextPath}/servico">Voltar</a>
+                <a class="btn btn-default btn-lg" href="${contextPath}/historico/aberto">Voltar</a>
                 <c:if test="${status != 'finalizado'}">
                     <a class="btn btn-default btn-lg" href="${contextPath}/historico/servico/editar/${servico.id}">Editar</a>
                 </c:if>
