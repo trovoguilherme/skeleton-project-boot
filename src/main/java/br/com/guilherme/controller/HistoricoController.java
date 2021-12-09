@@ -25,6 +25,7 @@ public class HistoricoController {
     @GetMapping()
     public String open(Model model, Authentication authentication) {
         UserModel user = userRepository.findByEmail(authentication.getName());
+        model.addAttribute("usuario", user);
         model.addAttribute("servicos", servicoRepository.findMyServices(user));
         return "home-contratante/historico/historico";
     }
