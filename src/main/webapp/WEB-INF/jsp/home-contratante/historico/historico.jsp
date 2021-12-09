@@ -29,7 +29,7 @@
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item" style=""> <a class="nav-link text-primary" href="${contextPath}/logout">logout</a> </li>
-          <li class="nav-item" style=""> <img class="img-fluid d-block d-inline-flex w-75" src="${contextPath}/perfil"> </li>
+          <li class="nav-item" style=""> <img class="img-fluid d-block d-inline-flex w-75" src="${contextPath}/imagens/${usuario.nomeImagem}"> </li>
         </ul>
       </div>
     </div>
