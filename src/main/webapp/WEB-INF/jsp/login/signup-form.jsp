@@ -24,18 +24,18 @@
                 data-target="#navbar6">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block" href="#">
-            <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/logo_b_small.png">
+        <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block" href="${contextPath}/">
+            <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
             <b> Sirvice<br></b>
         </a>
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item"><a class="nav-link" href="#">&nbsp;</a></li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Log in</a></li>
-                <li class="nav-item"><a class="nav-link text-primary" href="#" contenteditable="true">Registrar<br></a>
+                <li class="nav-item"><a class="nav-link" href="${contextPath}/login">Log in</a></li>
+                <li class="nav-item"><a class="nav-link text-primary" href="${contextPath}/register">Registrar<br></a>
                 </li>
-                <li class="nav-item" style=""><a class="nav-link text-primary" href="#">Esqueci minha senha</a></li>
+                <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/forgotpassword">Esqueci minha senha</a></li>
             </ul>
         </div>
     </div>
