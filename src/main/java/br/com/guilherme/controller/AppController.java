@@ -40,14 +40,14 @@ public class AppController {
 		return LOGIN_FOLDER + "index";
 	}
 	
-	@GetMapping("/register")
+	@GetMapping("/registrar")
 	public String showRegistrationForm(@ModelAttribute("userModel") UserModel userModel, Model model) {
 		model.addAttribute("user", new UserModel());
 		
 		return LOGIN_FOLDER + "signup-form";
 	}
 	
-	@PostMapping("/process-register")
+	@PostMapping("/registrar")
 	public String processRegister(UserModel userModel, @RequestParam("file") MultipartFile arquivo) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(userModel.getPassword());
