@@ -81,11 +81,27 @@
                 </thead>
                 <tbody>
                 <c:forEach items="${servicos}" var="servico">
+                <c:set var="corStatus" value="${servico.status}" scope="page"/>
                   <tr>
                     <td class="" style=""><b>${servico.id}</b></td>
                     <td>${servico.titulo}</td>
                     <td>${servico.emailPrestador}</td>
-                    <td>${servico.status}</td>
+                    <c:if test="${corStatus == 'aberto'}">
+                        <td class="bg-secondary"><b>${servico.status}</b></td>
+                    </c:if>
+
+                    <c:if test="${corStatus == 'fazendo'}">
+                        <td class="bg-success"><b>${servico.status}</b></td>
+                    </c:if>
+
+                    <c:if test="${corStatus == 'pausado'}">
+                        <td class="bg-danger"><b>${servico.status}</b></td>
+                    </c:if>
+
+                    <c:if test="${corStatus == 'finalizado'}">
+                        <td class="bg-info"><b>${servico.status}</b></td>
+                    </c:if>
+
                     <td>${servico.valor}</td>
                     <td><a href="${contextPath}/historico/servico/detalhe/${servico.id}" class="btn btn-warning d-flex justify-content-center align-items-center" style="	max-height: 20px;">Detalhes</a></td>
                   </tr>
