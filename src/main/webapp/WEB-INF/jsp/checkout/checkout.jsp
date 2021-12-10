@@ -49,9 +49,9 @@
                     <h1 class="text-xl font-medium text-left py-2 px-2">Carrinho</h1>
                 </div>
                 <div class="col-md-12 my-3">
-                    <h3 class="d-inline-flex">Criar website</h3><i
+                    <h3 class="d-inline-flex">${servico.titulo}</h3><i
                         class="fa fa-close text-xs font-medium justify-content-end d-inline-flex mx-3 fa-2x"></i><span
-                        class="md:text-md font-medium my-2 d-flex">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget eleifend diam, id interdum arcu. Vivamus sagittis bibendum neque, et lobortis eros scelerisque sit amet. Nullam non libero ipsum. Vestibulum eu egestas erat. Vivamus elementum augue quis at.</span>
+                        class="md:text-md font-medium my-2 d-flex">${servico.descricao}</span>
                     <div class="flex justify-between items-center mt-6 pt-6 col-md-12">
                         <div class="flex items-center col-md-6">
                             <div class="flex flex-col ml-3"></div>
@@ -60,45 +60,18 @@
                         </b>
                         <div class="flex justify-center items-center my-2"><b>
                             <span class="md:text-md font-medium d-flex my-1">html/css</span>
-                            <div class="pr-8 "><span class="text-xs font-medium p-1 px-2 bg-warning d-inline-flex my-1">web</span>
+                            <div class="pr-8 "><span class="text-xs font-medium p-1 px-2 bg-warning d-inline-flex my-1">${servico.categoria}</span>
                             </div>
                             <b>
-                                <h3 class="md:text-md font-medium my-1 justify-content-end d-flex">R$500.00</h3>
+                                <h3 class="md:text-md font-medium my-1 justify-content-end d-flex">${servico.valor}</h3>
                             </b>
                         </b>
                             <div></div>
                         </div>
                     </div>
-                    <h5 class="md:text-md font-medium d-inline-flex justify-content-start col-md-5 my-1"
-                        contenteditable="true">voltar para serviços</h5>
+                    <h5 class="md:text-md font-medium d-inline-flex justify-content-start col-md-5 my-1">voltar para serviços</h5>
                     <h5 class="md:text-md font-medium justify-content-end d-inline-flex text-primary col-md-5 my-1 ml-5">
-                        Subtotal - R$500.00</h5>
-                </div>
-                <div class="col-md-12 my-3">
-                    <h3 class="d-inline-flex">Criar website</h3><i
-                        class="fa fa-close text-xs font-medium justify-content-end d-inline-flex mx-3 fa-2x"></i><span
-                        class="md:text-md font-medium my-2 d-flex">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eget eleifend diam, id interdum arcu. Vivamus sagittis bibendum neque, et lobortis eros scelerisque sit amet. Nullam non libero ipsum. Vestibulum eu egestas erat. Vivamus elementum augue quis at.</span>
-                    <div class="flex justify-between items-center mt-6 pt-6 col-md-12">
-                        <div class="flex items-center col-md-6">
-                            <div class="flex flex-col ml-3"></div>
-                        </div>
-                        <b>
-                        </b>
-                        <div class="flex justify-center items-center my-2"><b>
-                            <span class="md:text-md font-medium d-flex my-1">html/css</span>
-                            <div class="pr-8 "><span class="text-xs font-medium p-1 px-2 bg-warning d-inline-flex my-1">web</span>
-                            </div>
-                            <b>
-                                <h3 class="md:text-md font-medium my-1 justify-content-end d-flex">R$500.00</h3>
-                            </b>
-                        </b>
-                            <div></div>
-                        </div>
-                    </div>
-                    <h5 class="md:text-md font-medium d-inline-flex justify-content-start col-md-5 my-1"
-                        contenteditable="true">voltar para serviços</h5>
-                    <h5 class="md:text-md font-medium justify-content-end d-inline-flex text-primary col-md-5 my-1 ml-5">
-                        Subtotal - R$500.00</h5>
+                        Total - ${servico.valor}</h5>
                 </div>
             </div>
 
