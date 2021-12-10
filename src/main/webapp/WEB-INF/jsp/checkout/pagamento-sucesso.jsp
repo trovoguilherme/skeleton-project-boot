@@ -27,7 +27,7 @@
                 <div class="content">
                    <h1>Pagameto com sucesso!</h1>
                    <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. </p>
-                   <a href="${contextPath}/servico">Voltar para home</a>
+                   <a href="${contextPath}/rank/${id}">Avaliar o prestador ${prestador}</a>
                 </div>
 
              </div>

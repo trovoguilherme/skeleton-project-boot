@@ -42,7 +42,7 @@
                   Dropdown
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                  <li><a class="dropdown-item" href="${contextPath}">Histórico</a></li>
+                  <li><a class="dropdown-item" href="${contextPath}/historico/aberto">Histórico</a></li>
                   <li><a class="dropdown-item" href="#">Another action</a></li>
                   <li>
                     <hr class="dropdown-divider">

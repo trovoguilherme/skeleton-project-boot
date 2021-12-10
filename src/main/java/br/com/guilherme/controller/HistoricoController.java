@@ -36,8 +36,14 @@ public class HistoricoController {
     @GetMapping()
     public String open(Model model, Authentication authentication) {
         UserModel user = userRepository.findByEmail(authentication.getName());
-        model.addAttribute("usuario", user);
-        model.addAttribute("servicos", servicoRepository.findMyServices(user));
+
+        if(user.getTipoDaConta().equalsIgnoreCase("contratante")) {
+            model.addAttribute("usuario", user);
+            model.addAttribute("servicos", servicoRepository.findMyServices(user));
+        } else {
+            model.addAttribute("servicos", servicoRepository.findServicosById(user.getId()));
+        }
+
         return "home-contratante/historico/historico";
     }
 
@@ -87,9 +93,13 @@ public class HistoricoController {
             page = "home-contratante/historico/finalizado";
         }
 
-        model.addAttribute("usuario", user);
-        model.addAttribute("servicosPorStatus", servicoRepository.findServicosMyServicesByStatus(user, status));
+        if(user.getTipoDaConta().equalsIgnoreCase("contratante")) {
 
+            model.addAttribute("servicosPorStatus", servicoRepository.findServicosMyServicesByStatus(user, status));
+        } else {
+            model.addAttribute("servicosPorStatus", servicoRepository.findServicosMyServicesByStatusPrestador(user.getId(), status));
+        }
+        model.addAttribute("usuario", user);
         return page;
     }
 

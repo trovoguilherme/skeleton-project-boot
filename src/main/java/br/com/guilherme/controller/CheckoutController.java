@@ -25,8 +25,11 @@ public class CheckoutController {
         return "checkout/checkout";
     }
 
-    @GetMapping("/sucesso")
-    public String pagamentoCoSucesso() {
+    @GetMapping("/sucesso/{id}")
+    public String pagamentoCoSucesso(@PathVariable("id") long id, Model model) {
+        ServicoModel findServico = servicoRepository.findById(id).get();
+        model.addAttribute("id", findServico.getIdaux());
+        model.addAttribute("prestador", findServico.getEmailPrestador());
         return "checkout/pagamento-sucesso";
     }
 

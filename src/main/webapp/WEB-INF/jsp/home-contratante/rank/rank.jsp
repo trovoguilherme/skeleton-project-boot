@@ -78,7 +78,8 @@
                     <h3>Avalie o prestador com uma nota</h3>
                     <form:option value="1" itemlabel="1"/>
                     <form:option value="2" itemlabel="2"/>
-                    <form:option value="3" itemlabel="4"/>
+                    <form:option value="3" itemlabel="3"/>
+                    <form:option value="4" itemlabel="4"/>
                     <form:option value="5" itemlabel="5"/>
                 </form:select>
               </div>
