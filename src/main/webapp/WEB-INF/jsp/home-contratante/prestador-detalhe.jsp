@@ -101,9 +101,6 @@
   <div class="py-3">
     <div class="container">
 
-        <div class="btn-group">
-                  <a href="${contextPath}/rank/${usuario.id}" class="btn btn-primary active" aria-current="page">Rank</a>
-              </div>
 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                       data-bs-whatever="@mdo">Comentar
@@ -137,26 +134,37 @@
 
       <div class="row">
         <div class="col-md-12">
-          <h3 class="text-center my-3" contenteditable="true"><b>Comentários</b></h3>
+          <h3 class="text-center my-3"><b>Comentários</b></h3>
         </div>
       </div>
-      <div class="row">
-        <c:forEach items="${comentarios}" var="comentario">
-          <div class="p-4 col-md-6">
-            <img class="img-fluid d-block rounded-circle d-inline-flex" src="${contextPath}/imagens/${imagemDoComentario}" style="min-height: 60px; min-width: 60px; max-width: 60px; max-height: 60px;">
-            <h4 class="d-inline-flex"> <b>${comentario.nome}</b></h4>
-            <p class="py-2">${comentario.mensagem}<br></p>
-            <h5 class="text-right">${comentario.dataDoComentario}</h5>
+      <c:if test="${!empty comentarios}">
+          <div class="row">
+            <c:forEach items="${comentarios}" var="comentario">
+              <div class="p-4 col-md-6">
+                <img class="img-fluid d-block rounded-circle d-inline-flex" src="${contextPath}/imagens/${imagemDoComentario}" style="min-height: 60px; min-width: 60px; max-width: 60px; max-height: 60px;">
+                <h4 class="d-inline-flex"> <b>${comentario.nome}</b></h4>
+                <p class="py-2">${comentario.mensagem}<br></p>
+                <h5 class="text-right">${comentario.dataDoComentario}</h5>
+              </div>
+            </c:forEach>
           </div>
-        </c:forEach>
-      </div>
+      </c:if>
+      <c:if test="${empty comentarios}">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-md-12" >
+                              <h2>Ainda não possui nenhum comentário</h2>
+                           </div>
+                      </div>
+                  </div>
+              </c:if>
     </div>
   </div>
-
+    <c:if test="${!empty servicosFinalizados }">
     <div class="container">
             <div class="row">
               <div class="col-md-12" >
-
+    <h2>Serviços realizados</h2>
     <div class="table-responsive" style="">
                   <table class="table">
                     <thead>
@@ -187,7 +195,16 @@
                </div>
             </div>
           </div>
-
+        </c:if>
+        <c:if test="${empty servicosFinalizados }">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h2>Ainda não possui serviços finalizados</h2>
+                     </div>
+                </div>
+            </div>
+        </c:if>
     <!-- jQuery -->
     <script src="${contextPath}/js/jquery.js"></script>
 
