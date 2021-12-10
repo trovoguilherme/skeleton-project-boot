@@ -104,6 +104,7 @@
                                     contato</a>
                             </c:if>
                         </div>
+                        <a type="submit" class="btn mt-2 mr-2 btn-warning" href="${contextPath}/perfil/editar">Editar</a>
                     </div>
                 </form>
                 <c:if test="${conta == 'prestador'}">
@@ -115,15 +116,9 @@
     </div>
 </div>
 
-<a class="btn btn-default btn-lg" href="${contextPath}/perfil/editar">Editar</a>
-
 <c:if test="${conta == 'prestador'}">
     <div class="py-3">
         <div class="container">
-
-            <div class="btn-group">
-                <a href="${contextPath}/rank/${usuario.id}" class="btn btn-primary active" aria-current="page">Rank</a>
-            </div>
 
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                     data-bs-whatever="@mdo">Comentar

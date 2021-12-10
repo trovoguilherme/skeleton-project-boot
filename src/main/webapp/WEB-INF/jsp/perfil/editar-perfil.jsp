@@ -180,7 +180,6 @@
 
                     <a class="btn btn-danger mt-2 mr-2" href="${contextPath}/servico">Cancelar<br></a>
                     <button type="submit" class="btn btn-primary mt-2 mr-2" href="${contextPath}/">Atualizar</button>
-                    <a type="submit" class="btn mt-2 mr-2 btn-warning" href="${contextPath}/">contatar</a>
 
                 </form:form>
 
@@ -189,49 +188,7 @@
         </div>
     </div>
 </div>
-<div class="py-3">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="text-center my-3"><b>Comentários</b></h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="p-4 col-md-6">
-                <img class="img-fluid d-block d-inline-flex" src="${contextPath}/">
-                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
-                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
-                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                    existence in this spot.<br></p>
-                <h5 class="text-right">data</h5>
-            </div>
-            <div class="p-4 col-md-6">
-                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
-                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
-                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
-                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                    existence in this spot.<br></p>
-                <h5 class="text-right">12/09/2022</h5>
-            </div>
-            <div class="p-4 col-md-6">
-                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
-                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
-                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
-                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                    existence in this spot.<br></p>
-                <h5 class="text-right">12/09/2022</h5>
-            </div>
-            <div class="p-4 col-md-6">
-                <img class="img-fluid d-block d-inline-flex" src="D:/AHALAN/fiap/tcc/male avatar.png">
-                <h4 class="d-inline-flex"><b>Marcos@marcão.com</b></h4>
-                <p contenteditable="true">A wonderful serenity has taken possession of my entire soul, like these
-                    sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of
-                    existence in this spot.<br></p>
-                <h5 class="text-right">12/09/2022</h5>
-            </div>
-        </div>
-    </div>
-</div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

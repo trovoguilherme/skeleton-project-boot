@@ -61,7 +61,6 @@ public class ServicoModel {
     @NotNull(message = "Nome obrigatório")
     private String emailPrestador; //email do dono servico
 
-
-
-
+    @Column(name = "data")
+    private String dataDoServico;
 }

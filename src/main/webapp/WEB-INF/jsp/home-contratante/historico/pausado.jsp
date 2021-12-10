@@ -22,7 +22,7 @@
       <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6" style="">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+        <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="${contextPath}/servico">
             <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
             <b> Sirvice<br></b>
           </a>
@@ -31,7 +31,7 @@
           </ul>
           <ul class="navbar-nav">
             <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/logout">logout</a></li>
-            <li class="nav-item" style=""><a href="${contextPath}/"><img class="img-fluid rounded-circle d-block d-inline-flex" src="${contextPath}/imagens/${usuario.nomeImagem}" style="max-height: 50px; max-width: 50px;"></a></li>
+            <li class="nav-item" style=""><a href="${contextPath}/perfil"><img class="img-fluid rounded-circle d-block d-inline-flex" src="${contextPath}/imagens/${usuario.nomeImagem}" style="max-height: 50px; max-width: 50px;"></a></li>
           </ul>
         </div>
       </div>

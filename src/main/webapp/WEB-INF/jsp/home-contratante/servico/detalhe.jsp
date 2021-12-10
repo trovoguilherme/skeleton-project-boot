@@ -77,6 +77,11 @@
                   <h4 class="card-title">${servico.status}</h4>
                 </b>
               </div>
+              <div class="form-group">
+                              <b><label>Data de criação</label>
+                                <h4 class="card-title">${servico.dataDoServico}</h4>
+                              </b>
+                            </div>
             </div>
                 <c:if test="${conta == 'contratante'}">
                     <a class="btn px-3 mr-2 btn-danger" href="${contextPath}/historico/aberto">Voltar</a>

@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Service
 public class ServicoService {
     @Autowired
@@ -25,6 +28,10 @@ public class ServicoService {
 
     public void salvar(long id, ServicoModel servicoModel, Authentication authentication) {
         UserModel user = userRepository.findById(id).get();
+
+        Date dataAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(dataAtual);
+        servicoModel.setDataDoServico(data);
 
         servicoModel.setEmailContratante(userRepository.findByEmail(authentication.getName()).getEmail());
         servicoModel.setUsuarioServico(userRepository.findByEmail(authentication.getName()));
@@ -43,12 +50,17 @@ public class ServicoService {
         novoServico.setValor(servicoModel.getValor());
         novoServico.setEmailContratante(servicoModel.getEmailContratante());
         novoServico.setEmailPrestador(servicoModel.getEmailPrestador());
+        novoServico.setDataDoServico(servicoModel.getDataDoServico());
 
         servicoRepository.save(novoServico);
     }
 
     public String atualizar(long id, ServicoModel servicoModel, Authentication authentication) {
         ServicoModel findServico = servicoRepository.findById(id).get();
+
+        Date dataAtual = new Date();
+        String data = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(dataAtual);
+        servicoModel.setDataDoServico(data);
 
         servicoModel.setId(id);
         servicoModel.setIdaux(findServico.getIdaux());

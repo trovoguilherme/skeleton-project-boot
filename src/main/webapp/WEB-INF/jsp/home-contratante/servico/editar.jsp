@@ -33,7 +33,7 @@
         <ul class="navbar-nav">
           <li class="nav-item" style=""><a class="nav-link text-primary" href="${contextPath}/logout">logout</a>
           </li>
-          <li class="nav-item" style=""><a href="${contextPath}/"><img class="img-fluid rounded-circle d-block d-inline-flex" src="${contextPath}/imagens/${usuario.nomeImagem}" style="max-height: 50px; max-width: 50px;"></a></li>
+          <li class="nav-item" style=""><a href="${contextPath}/perfil"><img class="img-fluid rounded-circle d-block d-inline-flex" src="${contextPath}/imagens/${usuario.nomeImagem}" style="max-height: 50px; max-width: 50px;"></a></li>
         </ul>
       </div>
     </div>
