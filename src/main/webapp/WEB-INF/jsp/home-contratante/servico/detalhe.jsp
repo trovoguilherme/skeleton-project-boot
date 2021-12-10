@@ -55,7 +55,7 @@
             <c:set var="conta" value="${usuario.tipoDaConta}" scope="page"/>
             <div class="card-body" style="">
               <label>Prestador</label>
-              <h4 class="card-title">Nome</h4>
+              <h4 class="card-title">${servico.emailPrestador}</h4>
               <div class="form-group"> <b><label>Título</label> </b></div>
               <h4 class="card-title">${servico.titulo}</h4>
               <div class="form-group"><b></b>
@@ -72,7 +72,7 @@
               <div class="form-group"> <b><label>Valor</label>
                   <h5 style="	text-shadow: 1px 1px 2px black;">${servico.valor}</h5>
                 </b></div>
-              <div class="form-group"><label>STATUS</label>
+              <div class="form-group">
                 <b><label>Status</label>
                   <h4 class="card-title">${servico.status}</h4>
                 </b>
@@ -90,7 +90,7 @@
                     <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/historico/servico/editar/${servico.id}">Editar</a>
                 </c:if>
                 <c:if test="${conta == 'contratante'}">
-                    <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/checkout">Concluido</a>
+                    <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/checkout/${servico.id}">Concluido</a>
                 </c:if>
           </div>
         </div>
