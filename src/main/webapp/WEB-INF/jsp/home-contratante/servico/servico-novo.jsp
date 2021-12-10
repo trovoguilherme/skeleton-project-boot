@@ -103,8 +103,8 @@
                 </div>
               </div>
           </div>
-          <a href="${contextPath}/historico/aberto" class="btn px-3 mr-2 btn-danger">Cancelar<br></a>
-          <button type="submit" class="btn px-3 mr-2 btn-primary">Atualizar<br></button>
+          <a href="${contextPath}/servico" class="btn px-3 mr-2 btn-danger">Cancelar<br></a>
+          <button type="submit" class="btn px-3 mr-2 btn-primary">Cadastrar<br></button>
           </form:form>
         </div>
       </div>
