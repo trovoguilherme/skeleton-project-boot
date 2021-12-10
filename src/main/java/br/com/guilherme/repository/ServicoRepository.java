@@ -34,4 +34,7 @@ public interface ServicoRepository extends JpaRepository<ServicoModel, Long> {
     @Query("SELECT s from ServicoModel s WHERE s.usuarioServico = ?1")
     List<ServicoModel> findMyServices(UserModel userModel);
 
+    @Query("SELECT s from ServicoModel s WHERE s.idaux = ?1")
+    List<ServicoModel> findServicoPrestador(long id);
+
 }
