@@ -16,6 +16,9 @@ public interface ServicoRepository extends JpaRepository<ServicoModel, Long> {
     @Query("SELECT s from ServicoModel s WHERE s.categoria = ?1")
     List<ServicoModel> findServicoByCategoria(String categoria);
 
+    @Query("SELECT s from ServicoModel s WHERE s.status = ?1 AND s.idaux = ?2")
+    List<ServicoModel> findServicoByStatusAndId(String status, long id);
+
     @Transactional
     @Modifying
     @Query("DELETE ServicoModel WHERE id = ?1")

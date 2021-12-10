@@ -153,6 +153,41 @@
     </div>
   </div>
 
+    <div class="container">
+            <div class="row">
+              <div class="col-md-12" >
+
+    <div class="table-responsive" style="">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th>Prestador</th>
+                        <th>Status</th>
+                        <th>Preço</th>
+                        <th>Ação</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${servicosFinalizados}" var="servico">
+                      <tr>
+                        <td class="" style=""><b>${servico.id}</b></td>
+                        <td>${servico.titulo}</td>
+                        <td>${servico.emailPrestador}</td>
+                        <td>${servico.status}</td>
+                        <td>${servico.valor}</td>
+                        <td><a href="${contextPath}/historico/servico/detalhe/${servico.id}" class="btn btn-warning d-flex justify-content-center align-items-center" style="	max-height: 20px;">Detalhes</a></td>
+                      </tr>
+                      </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
+
+               </div>
+            </div>
+          </div>
+
     <!-- jQuery -->
     <script src="${contextPath}/js/jquery.js"></script>
 

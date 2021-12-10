@@ -103,7 +103,7 @@ public class ContratanteController {
         model.addAttribute("usuario", userRepository.findById(id).get());
 
         model.addAttribute("comentarios", listaDeComentarios);
-        model.addAttribute("servicos", servicoRepository.findServicosById(id));
+        model.addAttribute("servicosFinalizados", servicoRepository.findServicoByStatusAndId("finalizado", id));
         model.addAttribute("whatsapp", user.getTelefone());
 
         model.addAttribute("rank", rankService.calcularMediaDeVoto(id));
