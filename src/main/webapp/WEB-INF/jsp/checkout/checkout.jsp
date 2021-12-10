@@ -23,7 +23,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar6"><a class="navbar-brand text-primary d-none d-md-block"
-                                                              href="#">
+                                                              href="${contextPath}/servico">
             <img class="img-fluid d-block d-inline-flex w-25" src="${contextPath}/imagens/nav_logo.png">
             <b> Sirvice<br></b>
         </a>
