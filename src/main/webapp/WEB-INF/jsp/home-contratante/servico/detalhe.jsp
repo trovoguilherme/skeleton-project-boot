@@ -89,8 +89,10 @@
                 <c:if test="${status != 'finalizado'}">
                     <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/historico/servico/editar/${servico.id}">Editar</a>
                 </c:if>
-                <c:if test="${conta == 'contratante'}">
-                    <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/checkout/${servico.id}">Concluido</a>
+                <c:if test="${status != 'finalizado'}">
+                    <c:if test="${conta == 'contratante'}">
+                        <a class="btn px-3 mr-2 btn-primary" href="${contextPath}/checkout/${servico.id}">Concluido</a>
+                    </c:if>
                 </c:if>
           </div>
         </div>
