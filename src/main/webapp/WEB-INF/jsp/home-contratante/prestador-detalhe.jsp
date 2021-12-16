@@ -83,7 +83,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <b>Telefone</b>
-                <h5 class="text-left">${usuario.telefone}</h5>
+                <h5 class="text-left">${telefone}</h5>
               </div>
               <div class="form-group col-md-6 d-flex align-items-center">
                 <a class="btn btn-warning" href="https://wa.me/55${whatsapp}">entrar em contato</a>

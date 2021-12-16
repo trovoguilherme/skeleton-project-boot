@@ -20,7 +20,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.swing.text.MaskFormatter;
 import javax.validation.Valid;
+import java.text.ParseException;
 import java.util.List;
 
 @Controller
@@ -87,10 +89,15 @@ public class ContratanteController {
     public String findById(@PathVariable("id") long id, Model model, @ModelAttribute("procurarModel") ProcurarModel procurarModel, @ModelAttribute("comentarioModel") ComentarioModel comentarioModel) {
         UserModel user = userRepository.findById(id).get();
 
-        model.addAttribute("usuario", userRepository.findById(id).get());
+        try {
+            MaskFormatter mask = new MaskFormatter("(##)#####-####");
+            mask.setValueContainsLiteralCharacters(false);
+            model.addAttribute("telefone", mask.valueToString(user.getTelefone()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        List<ComentarioModel> listaDeComentarios = comentarioRepository.findComentariosById(id);
-        //List<ComentarioModel> minhaLista = comentarioRepository.findComentariosById(id);
+        model.addAttribute("usuario", userRepository.findById(id).get());
 
         List<ComentarioModel> listaDeComentario = comentarioRepository.findComentariosById(id);
         UserModel auxUser = new UserModel();
@@ -102,7 +109,7 @@ public class ContratanteController {
 
         model.addAttribute("usuario", userRepository.findById(id).get());
 
-        model.addAttribute("comentarios", listaDeComentarios);
+        model.addAttribute("comentarios", comentarioRepository.findComentariosById(id));
         model.addAttribute("servicosFinalizados", servicoRepository.findServicoByStatusAndId("finalizado", id));
         model.addAttribute("whatsapp", user.getTelefone());
 
