@@ -52,6 +52,7 @@ public class AppController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(userModel.getPassword());
 		userModel.setPassword(encodedPassword);
+		userModel.setEmail(userModel.getEmail().trim());
 
 		try {
 			if (!arquivo.isEmpty()) {
